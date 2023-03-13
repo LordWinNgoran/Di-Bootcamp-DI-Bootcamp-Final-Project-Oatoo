@@ -1,0 +1,54 @@
+<!-- Importation du header -->
+<app-head></app-head>
+<!-- <Fin Importation du header -->
+
+<!-- début du main -->
+<main id="main" class="main ">
+  <div class="pagetitle">
+    <h1>Programmes</h1>
+    <nav>
+      <!-- Les éléments du breadcumbs -->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+        <li class="breadcrumb-item">Programmes</li>
+        <li class="breadcrumb-item active">Liste des participants aux programmes</li>
+      </ol>
+    </nav>
+  </div>
+  <!-- Fin des éléments du breadcumbs -->
+
+
+  <!-- Début du cadre de notre formulaire -->
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Liste des programmes</h5>
+      <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable</p>
+
+      <!-- Table with stripped rows -->
+      <table class="table datatable">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of collection | paginate: { itemsPerPage: 5, currentPage: p }">
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.name}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- End Table with stripped rows -->
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+    </div>
+  </div>
+
+</main>
+<!-- Fin main -->
+<!-- ======= Importation du footer ======= -->
+<app-footer></app-footer>
+<!-- ======= Fin Importation du footer ======= -->
+

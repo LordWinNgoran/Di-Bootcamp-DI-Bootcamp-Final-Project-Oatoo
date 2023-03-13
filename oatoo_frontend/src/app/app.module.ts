@@ -12,6 +12,12 @@ import { LoginComponent } from './auth/login/login.component';
 import { MainComponent } from './components/dashboard/main/main.component';
 import { HeaderComponent } from './components/share/header/header.component';
 import { TestComponent } from './components/dashboard/test/test.component';
+import { HeadComponent } from './components/dashboard/head/head.component';
+import { AddProgramComponent } from './components/features/programs/add-program/add-program.component';
+import { FooterComponent } from './components/dashboard/footer/footer.component';
+import { ListProgramsComponent } from './components/features/programs/list-programs/list-programs.component';
+import { ListParticipantsProgramsComponent } from './components/features/programs/list-participants-programs/list-participants-programs.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -21,16 +27,22 @@ import { TestComponent } from './components/dashboard/test/test.component';
     LoginComponent,
     MainComponent,
     HeaderComponent,
-    TestComponent
+    TestComponent,
+    AddProgramComponent,
+    HeadComponent,
+    FooterComponent,
+    ListProgramsComponent,
+    ListParticipantsProgramsComponent
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     AppRoutingModule,
       BrowserAnimationsModule,
       TuiRootModule,
       TuiDialogModule,
       TuiAlertModule,
-      TuiButtonModule
+      TuiButtonModule,
+      NgxPaginationModule
 ],
   providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}],
   bootstrap: [AppComponent]

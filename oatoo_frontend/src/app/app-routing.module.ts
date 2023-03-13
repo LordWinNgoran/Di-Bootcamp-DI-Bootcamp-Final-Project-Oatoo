@@ -6,6 +6,10 @@ import { HomeComponent } from './components/landing/home/home.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { MainComponent } from './components/dashboard/main/main.component';
+import { AddProgramComponent } from './components/features/programs/add-program/add-program.component';
+import { ListProgramsComponent } from './components/features/programs/list-programs/list-programs.component';
+import { ListParticipantsProgramsComponent } from './components/features/programs/list-participants-programs/list-participants-programs.component';
+
 const routes: Routes = [
   {
     path: 'accueil',
@@ -20,8 +24,20 @@ const routes: Routes = [
     component : RegisterComponent,
   },
   {
-    path: 'dashboard',
+    path: 'oatoo',
     component : MainComponent,
+  },
+  {
+    path: 'add-program',
+    component : AddProgramComponent,
+  },
+  {
+    path: 'list-programs',
+    component : ListProgramsComponent,
+  },
+  {
+    path: 'programs-participants',
+    component : ListParticipantsProgramsComponent,
   },
   /* {
     path: 'login',
