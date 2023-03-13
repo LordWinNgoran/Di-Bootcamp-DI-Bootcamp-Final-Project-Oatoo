@@ -5,12 +5,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './landing/home/home.component';
-import { PageNotFoundComponent } from './landing/page-not-found/page-not-found.component';
+import { HomeComponent } from './components/landing/home/home.component';
+import { PageNotFoundComponent } from './components/landing/page-not-found/page-not-found.component';
 import {TuiButtonModule} from '@taiga-ui/core';
 import { LoginComponent } from './auth/login/login.component';
-import { MainComponent } from './dashboard/main/main.component';
-import { HeaderComponent } from './share/header/header.component';
+import { MainComponent } from './components/dashboard/main/main.component';
+import { HeaderComponent } from './components/share/header/header.component';
+import { TestComponent } from './components/dashboard/test/test.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HeaderComponent } from './share/header/header.component';
     PageNotFoundComponent,
     LoginComponent,
     MainComponent,
-    HeaderComponent
+    HeaderComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,

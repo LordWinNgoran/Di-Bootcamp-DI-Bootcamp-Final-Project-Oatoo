@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { from } from 'rxjs';
-import { PageNotFoundComponent } from './landing/page-not-found/page-not-found.component';
-import { HomeComponent } from './landing/home/home.component';
+import { PageNotFoundComponent } from './components/landing/page-not-found/page-not-found.component';
+import { HomeComponent } from './components/landing/home/home.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { MainComponent } from './dashboard/main/main.component';
+import { MainComponent } from './components/dashboard/main/main.component';
 const routes: Routes = [
   {
     path: 'accueil',
