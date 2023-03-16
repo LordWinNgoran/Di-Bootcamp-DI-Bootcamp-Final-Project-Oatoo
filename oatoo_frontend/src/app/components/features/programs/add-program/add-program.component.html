@@ -6,7 +6,7 @@
     <nav>
       <!-- Les éléments du breadcumbs -->
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+        <li class="breadcrumb-item"><a routerLink="/user/oatoo">Accueil</a></li>
         <li class="breadcrumb-item">Programmes</li>
         <li class="breadcrumb-item active">Ajouter un programme</li>
       </ol>
@@ -20,23 +20,39 @@
       <h5 class="card-title">Ajouter un programme à Oatoo</h5>
       <p>Les champs obligatoires sont marqués par le signe ( <span class="text-danger">*</span> )</p>
       <!-- début Form -->
-      <form class="row g-3">
+      <form class="row g-3" #programForm="ngForm" (ngSubmit)="programForm.valid && addprogram(programForm)">
         <!-- Description des differents formulaires -->
         <div class="col-md-12">
           <label for="" class="mb-2">Nom du programme <span class="text-danger">*</span> </label>
-          <input type="text" class="form-control" placeholder="Veuillez saisir le libéllé du programme">
+          <input type="text" class="form-control" placeholder="Veuillez saisir le libéllé du programme"
+          name="program_name" [(ngModel)]="programs.program_name" required #program_name="ngModel">
+          <div [hidden]="program_name.valid || program_name.pristine" class="alert alert-danger">
+            Ce champ est obligatoire
+          </div>
         </div>
         <div class="col-md-12">
           <label for="" class="mb-2">Description du programme <span class="text-danger">*</span> </label>
-          <textarea class="form-control" placeholder="Saisissez toutes les informations" rows="9"></textarea>
+          <textarea class="form-control" placeholder="Saisissez toutes les informations" rows="9"
+          name="desc_program" [(ngModel)]="programs.desc_program" required #desc_program="ngModel"></textarea>
+          <div [hidden]="desc_program.valid || desc_program.pristine" class="alert alert-danger">
+            Ce champ est obligatoire
+          </div>
         </div>
         <div class="col-md-6">
           <label for="" class="mb-2">Date de début <span class="text-danger">*</span> </label>
-          <input type="date" class="form-control" id="birthday" name="birthday">
+          <input type="date" class="form-control" 
+          name="start_date" [(ngModel)]="programs.start_date" required #start_date="ngModel">
+          <div [hidden]="start_date.valid || start_date.pristine" class="alert alert-danger">
+            Ce champ est obligatoire
+          </div>
         </div>
         <div class="col-md-6">
           <label for="" class="mb-2">Date de fin <span class="text-danger">*</span></label>
-          <input type="date" class="form-control" id="birthday" name="birthday">
+          <input type="date" class="form-control" 
+          name="end_date" [(ngModel)]="programs.end_date" required #end_date="ngModel">
+          <div [hidden]="end_date.valid || end_date.pristine" class="alert alert-danger">
+            Ce champ est obligatoire
+          </div>
         </div>
         <div class="col-md-12">
             <label for="" class="mb-2">Nombre de place <span class="text-danger">*</span></label>
@@ -46,12 +62,17 @@
         <!-- pour la photo du programme nous prenons en compte que les images png jepg jpg-->
         <div class="col-md-12">
           <label for="" class="mb-2">Choisir une photo pour le programme</label>
-          <input type="file" class="form-control" accept="image/png, image/gif, image/jpeg, image/jpg">
+          <input type="file" class="form-control" accept="image/png, image/gif, image/jpeg, image/jpg"
+          name="photo_program" [(ngModel)]="programs.photo_program" required #photo_program="ngModel">
+          <div [hidden]="photo_program.valid || photo_program.pristine" class="alert alert-danger">
+            Ce champ est obligatoire
+          </div>
         </div>
 
         <div class="mt-5">
           <button tuiButton 
-          type="button" appearance="custom" size="s" type="submit" class="btn btn-success active">Enregistrer</button>
+          type="button" appearance="custom" size="s" type="submit" class="btn btn-success active" 
+          [disabled]="!programForm.form.valid">Enregistrer</button>
           <button tuiButton 
           type="button" appearance="custom" size="s" type="reset" class="btn btn-danger active  float-end">Annuler</button>
         </div>

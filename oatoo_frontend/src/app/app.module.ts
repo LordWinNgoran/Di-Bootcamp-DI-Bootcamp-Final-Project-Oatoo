@@ -45,6 +45,7 @@ import { UsersComponent } from './components/features/setting/users/users.compon
 import { ManageUserComponent } from './components/features/users/manage-user/manage-user.component';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
+import {DataTablesModule} from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,8 @@ import { FormsModule } from "@angular/forms";
       TuiButtonModule,
       NgxPaginationModule,
       HttpClientModule,
-      FormsModule
+      FormsModule,
+      DataTablesModule
 ],
   providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}],
   bootstrap: [AppComponent]
