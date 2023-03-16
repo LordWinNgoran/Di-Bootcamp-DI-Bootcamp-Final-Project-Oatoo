@@ -38,6 +38,9 @@
               "node_modules/@taiga-ui/core/styles/taiga-ui-fonts.less",
               "node_modules/@taiga-ui/styles/taiga-ui-global.less",
               "src/styles.css",
+              "src/assets/vendor/bootstrap-icons/bootstrap-icons.css",
+              "src/assets/css/style.css",
+
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [

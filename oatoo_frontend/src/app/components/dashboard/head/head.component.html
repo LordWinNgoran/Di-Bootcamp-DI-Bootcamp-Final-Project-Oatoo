@@ -3,16 +3,18 @@
 <link
   href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
   rel="stylesheet">
-
-
-
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="/assets/css/style.css" rel="stylesheet">
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center">
 
   <!-- ======= Zone du logo et nom de l'application ======= -->
   <div class="d-flex align-items-center justify-content-between">
-    <a href="index.html" class="logo d-flex align-items-center">
-      <img src="assets/img/logo.png" alt="">
+    <a routerLink="/" class="logo d-flex align-items-center">
+      <img src="/assets/img/logo.png" alt="">
       <span class="d-none d-lg-block">Oatoo</span>
     </a>
     <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -71,7 +73,7 @@
 
           <li class="message-item">
             <a href="#">
-              <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
+              <img src="/assets/img/messages-1.jpg" alt="" class="rounded-circle">
               <div>
                 <h4>Maria Hudson</h4>
                 <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -84,7 +86,7 @@
           </li>
           <li class="message-item">
             <a href="#">
-              <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
+              <img src="/assets/img/messages-2.jpg" alt="" class="rounded-circle">
               <div>
                 <h4>Anna Nelson</h4>
                 <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -97,7 +99,7 @@
           </li>
           <li class="message-item">
             <a href="#">
-              <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle">
+              <img src="/assets/img/messages-3.jpg" alt="" class="rounded-circle">
               <div>
                 <h4>David Muldon</h4>
                 <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -124,7 +126,7 @@
       <li class="nav-item dropdown pe-3">
 
         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-          <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+          <img src="/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
           <span class="d-none d-md-block dropdown-toggle ps-2">N'goran Kouadio Jean C</span>
         </a><!-- End Profile Iamge Icon -->
 
@@ -143,7 +145,7 @@
           </li>
 
           <li>
-            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+            <a class="dropdown-item d-flex align-items-center" routerLink="/user-manage">
               <i class="bi bi-gear"></i>
               <span>Gérer mon compte </span>
             </a>
@@ -171,7 +173,6 @@
 
         </ul>
       </li>
-
       <!-- ======= Fin profil utilisateur ======= -->
 
     </ul>
@@ -185,7 +186,7 @@
   <ul class="sidebar-nav" id="sidebar-nav">
     <!-- icone d'acceuil -->
     <li class="nav-item">
-      <a class="nav-link " href="index.html">
+      <a class="nav-link " routerLink="/oatoo" routerLinkActive="active">
         <i class="bi bi-grid"></i>
         <span>Accueil</span>
       </a>
@@ -194,50 +195,54 @@
 
 
     <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-bezier2"></i><span>Contracts</span><i class="bi bi-chevron-down ms-auto"></i>
+      <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#" routerLinkActive="active">
+        <i class="bi bi-bezier2"></i><span>Contrats</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
       <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-          <a href="components-alerts.html">
+          <a routerLink="/contract/add" routerLinkActive="active">
             <i class="bi bi-circle"></i><span>Proposer un contract</span>
           </a>
         </li>
         <li>
-          <a href="components-accordion.html">
+          <a routerLink="/contract/list" routerLinkActive="active">
             <i class="bi bi-circle"></i><span>Liste des contracts</span>
           </a>
         </li>
         <li>
-          <a href="components-badges.html">
+          <a routerLink="/contract/my-contract" routerLinkActive="active">
             <i class="bi bi-circle"></i><span>Mes contracts</span>
           </a>
         </li>
       </ul>
     </li>
-
     <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
         <i class="bi bi-journal-text"></i><span>Demandeurs d'emploi</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
       <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-          <a href="forms-elements.html">
+          <a routerLink="/applicant/list" routerLinkActive="active">
             <i class="bi bi-circle"></i><span>Liste des demandeurs</span>
           </a>
         </li>
         <li>
-          <a href="forms-layouts.html">
+          <a routerLink="/applicant/add" routerLinkActive="active">
             <i class="bi bi-circle"></i><span>Remplir ma fiche</span>
           </a>
         </li>
         <li>
-          <a href="forms-editors.html">
+          <a routerLink="/applicant/view-myprofile" routerLinkActive="active">
+            <i class="bi bi-circle"></i><span>Voir ma fiche</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/applicant/see-profile" routerLinkActive="active">
             <i class="bi bi-circle"></i><span>Personnes insérées</span>
           </a>
         </li>
         <li>
-          <a href="forms-validation.html">
+          <a routerLink="/applicant/feedbacks" routerLinkActive="active">
             <i class="bi bi-circle"></i><span>Feedbacks</span>
           </a>
         </li>
@@ -245,76 +250,87 @@
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+      <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#" routerLinkActive="active">
         <i class="bi bi-buildings"></i><span>Entreprises</span><i
           class="bi bi-chevron-down ms-auto"></i>
       </a>
       <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-          <a href="tables-general.html">
+          <a routerLink="/user/company/add" routerLinkActive="active">
             <i class="bi bi-circle"></i><span>Ajouter mon entreprise </span>
           </a>
         </li>
         <li>
-          <a href="tables-data.html">
+          <a routerLink="/user/company/update" routerLinkActive="active">
+            <i class="bi bi-circle"></i><span>Modifier les informations </span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/user/company/pib" routerLinkActive="active">
             <i class="bi bi-circle"></i><span>Contribution au PIB</span>
           </a>
         </li>
         <li>
-          <a href="tables-data.html">
+          <a routerLink="/user/company/list" routerLinkActive="active">
             <i class="bi bi-circle"></i><span>Liste des entreprises</span>
           </a>
         </li>
-
       </ul>
     </li>
-
     <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
         <i class="bi bi-person-badge"></i><span>Inscriptions</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
       <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-          <a href="charts-echarts.html">
+          <a routerLink="/applicants-inserted" routerLinkActive="active">
             <i class="bi bi-circle"></i><span>Demandeurs insérés</span>
           </a>
         </li>
         <li>
-          <a href="charts-chartjs.html">
+          <a routerLink="/list-subscribers" routerLinkActive="active">
             <i class="bi bi-circle"></i><span>Liste des inscrits</span>
           </a>
         </li>
         <li>
-          <a href="charts-chartjs.html">
+          <a routerLink="/add-inscription" routerLinkActive="active">
             <i class="bi bi-circle"></i><span>M'inscrire à un programme</span>
           </a>
         </li>
         <li>
-          <a href="charts-apexcharts.html">
+          <a routerLink="/view-grades" routerLinkActive="active">
+            <i class="bi bi-circle"></i><span>Voir mes notes</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/list-demandes-inscriptions" routerLinkActive="active">
+            <i class="bi bi-circle"></i><span>Liste des demandes</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/best-subscribers" routerLinkActive="active">
             <i class="bi bi-circle"></i><span>Meilleurs demandeurs</span>
           </a>
         </li>
         <li>
-          <a href="icons-boxicons.html">
+          <a routerLink="/note-formation" routerLinkActive="active">
             <i class="bi bi-circle"></i><span>Notés les participants</span>
           </a>
         </li>
-
       </ul>
     </li>
-
     <li class="nav-item">
       <a class="nav-link collapsed" routerLinkActive="active" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
         <i class="bi bi-file-text"></i><span>Programmes</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
       <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-          <a routerLink="/add-program" routerLinkActive="active">
+          <a routerLink="/user/program/add" routerLinkActive="active">
             <i class="bi bi-circle"></i><span>Ajouter un programme</span>
           </a>
         </li>
         <li>
-          <a routerLink="/list-programs">
+          <a routerLink="/user/program/list">
             <i class="bi bi-circle"></i><span>Liste des programmes</span>
           </a>
         </li>
@@ -325,32 +341,30 @@
         </li>
       </ul>
     </li>
-
     <li class="nav-heading">Paramètres</li>
-
     <li class="nav-item">
-      <a class="nav-link collapsed" href="users-profile.html">
+      <a class="nav-link collapsed" routerLink="/user/year" routerLinkActive="active">
         <i class="bi bi-gear-wide"></i>
         <span>Années de gestion</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="pages-faq.html">
+      <a class="nav-link collapsed" routerLink="/user/type-contracts" routerLinkActive="active">
         <i class="bi bi-inboxes"></i>
         <span>Type de contracts</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="pages-contact.html">
+      <a class="nav-link collapsed" routerLink="/user/type-card" routerLinkActive="active">
         <i class="bi bi-layers-fill"></i>
         <span>Type de pièce</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="pages-register.html">
+      <a class="nav-link collapsed" routerLink="/user/pib" routerLinkActive="active">
         <i class="bi bi-card-list"></i>
         <span>PIB</span>
       </a>
@@ -368,3 +382,10 @@
 
 </aside>
 <!-- Fin Sidebar-->
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/tinymce/tinymce.min.js"></script>
+  <!-- Template Main JS File -->
+  <script src="/assets/js/main.js"></script>
+
+  <router-outlet></router-outlet>
+

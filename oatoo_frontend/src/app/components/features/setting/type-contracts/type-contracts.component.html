@@ -1,0 +1,99 @@
+<!-- début du main -->
+<main id="main" class="main ">
+  <div class="pagetitle">
+    <h1>Type de contrats</h1>
+    <nav>
+      <!-- Les éléments du breadcumbs -->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+        <li class="breadcrumb-item">Type de contrats </li>
+        <li class="breadcrumb-item active">Les types de contrats</li>
+      </ol>
+    </nav>
+  </div>
+  <!-- Fin des éléments du breadcumbs -->
+
+
+  <!-- Début du cadre de notre formulaire -->
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Les types de contrats</h5>
+      <p>Nous présentons la liste des types de contrats. Vous pouvez ajouter un type de contrat ici </p><a tuiButton
+      type="button" appearance="custom" size="s" class="btn btn-primary active float-end"
+      data-bs-toggle="modal" data-bs-target="#addtypcard">Ajouter un type</a>
+      <!-- Table with stripped rows -->
+      <table class="table datatable">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Description</th>
+            <th scope="col">Date d'ajout</th>
+            <th scope="col">Date de modification</th>
+            <th scope="col">Actions</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data_contracts | paginate: { itemsPerPage: 5, currentPage: p }">
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.desc_contract_type}}</td>
+            <td>{{item.created_at | date :'dd-MM-yyyy'}}</td>
+            <td>{{item.updated_at | date :'dd-MM-yyyy'}}</td>
+            <td>
+                <button tuiButton 
+                        type="button" appearance="custom" size="s" type="submit" class="btn btn-success active"><i class="bi bi-tropical-storm"></i>
+                </button>
+
+                <button tuiButton 
+                        type="button" appearance="custom" size="s" type="submit" class="btn btn-warning mx-2 active"><i class="bi bi-arrow-counterclockwise"></i>
+                </button>
+
+                <button tuiButton 
+                        type="button" appearance="custom" size="s" type="submit" class="btn btn-danger active"><i class="bi bi-backspace-reverse"></i>
+                </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- End Table with stripped rows -->
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+    </div>
+  </div>
+
+  <!-- Modal pour ajouter une année -->
+  <div class="modal fade" id="addtypcard" tabindex="-1" data-bs-backdrop="false" data-target="#modal" [hidden]="IsmodelClose">
+    <div class="modal-dialog">
+      <form class="row g-3" #contractForm="ngForm" (ngSubmit)="contractForm.valid && addTypeContract(contractForm)">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Ajouter un type de contrat</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Les champs obligatoires sont marqués par le signe ( <span class="text-danger">*</span> )</p>
+            <!-- Description des differents formulaires -->
+            <div class="col-md-12">
+              <label for="" class="mb-2">Type de contrat <span class="text-danger">*</span> </label>
+              <input type="text" class="form-control" placeholder="Entrez un nouveau type de contrat"
+                name="desc_contract_type" [(ngModel)]="contracts.desc_contract_type" required #desc_contract_type="ngModel">
+                <div [hidden]="desc_contract_type.valid || desc_contract_type.pristine" class="alert alert-danger">
+                  Ce champ est obligatoire
+                </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button tuiButton type="button" appearance="custom" data-bs-dismiss="modal" size="s" type="reset"
+              class="btn btn-danger active  float-end">Fermer</button>
+            <button tuiButton type="button" appearance="custom" size="s" type="submit" [disabled]="!contractForm.form.valid"
+              class="btn btn-success active">Enregistrer</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</main>
+<!-- Fin main -->
+
+

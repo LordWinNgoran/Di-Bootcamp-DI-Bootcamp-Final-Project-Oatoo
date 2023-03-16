@@ -33,8 +33,10 @@ header{
   font-weight: 500;
   font-family: Arial, Helvetica, sans-serif;
   position: absolute;
-  top: 15%;
+  top: 5%;
 }
+
+
 .overlay-text p{
   width: 700px;
   color: #fff;

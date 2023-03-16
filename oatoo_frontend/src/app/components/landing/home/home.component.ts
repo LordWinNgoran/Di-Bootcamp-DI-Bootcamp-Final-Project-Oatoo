@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import swal from 'sweetalert2';
+import { Component } from '@angular/core';
+/* import swal from 'sweetalert2'; */
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,9 +9,9 @@ import swal from 'sweetalert2';
               
             ]
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent {
      
-  ngOnInit() {
+ /*  ngOnInit() {
     // Sweet Alert permettant d'afficher la notification de bienvenue
     swal.fire({
       title:'Oatoo',
@@ -29,5 +29,5 @@ export class HomeComponent implements OnInit{
       }
     });
 
-  }
+  } */
 }
