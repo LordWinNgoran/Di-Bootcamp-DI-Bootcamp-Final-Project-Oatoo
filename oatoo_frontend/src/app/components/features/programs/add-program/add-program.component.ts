@@ -19,7 +19,7 @@ export class AddProgramComponent {
   apiErrorThrown: boolean = false;
   errorResponseServer: any;
   constructor(private api: ApiProgramService){
-    this.programs = new Program(null!,null!,null!,null!,null!,null!,null!,null!,null!);
+    this.programs = new Program(null!,null!,null!,null!,null!,null!,"L",null!,null!,1);
   }
 
   addprogram(programForm: any) {

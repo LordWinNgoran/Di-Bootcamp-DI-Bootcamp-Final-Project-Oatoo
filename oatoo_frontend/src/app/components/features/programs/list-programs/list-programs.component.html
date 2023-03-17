@@ -1,15 +1,14 @@
 
-
 <!-- début du main -->
 <main id="main" class="main ">
   <div class="pagetitle">
-    <h1>Programmes</h1>
+    <h1>Entreprise</h1>
     <nav>
       <!-- Les éléments du breadcumbs -->
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
-        <li class="breadcrumb-item">Programmes</li>
-        <li class="breadcrumb-item active">Liste des participants aux programmes</li>
+        <li class="breadcrumb-item"><a href="/user/oatoo">Accueil</a></li>
+        <li class="breadcrumb-item">Entreprise </li>
+        <li class="breadcrumb-item active">La liste des entreprises  </li>
       </ol>
     </nav>
   </div>
@@ -19,34 +18,53 @@
   <!-- Début du cadre de notre formulaire -->
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Liste des programmes</h5>
-      <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable</p>
+      <h5 class="card-title">La liste des entreprises</h5>
+      <p>Nous présentons la liste des entreprises. Vous pouvez ajouter une entreprise ici. <a tuiButton
+          type="button" appearance="custom" size="s" class="btn btn-primary active float-end"
+          routerLink="/user/program/add" >Ajouter une entreprise</a></p>
 
       <!-- Table with stripped rows -->
-      <table class="table datatable">
+      <table class="table table-striped table-bordered table-sm row-border hover" id="datatableexample">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Name</th>
-            
+            <th scope="col">Nom programme</th>
+            <th scope="col">Date début</th>
+            <th scope="col">Date fin</th>
+            <th scope="col">Places</th>
+            <th scope="col">Etat</th>
+            <th scope="col" class="text-center">Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of collection | paginate: { itemsPerPage: 5, currentPage: p }">
-            <th scope="row">{{item.id}}</th>
-            <td>{{item.name}}</td>
+          <tr *ngFor="let item of data_programs">
+            <th scope="row">{{ item.id }}</th>
+            <td >{{ item.program_name  }}</td>
+            <td>{{ item.start_date  | date:'dd-MM-yyyy'}}</td>
+            <td>{{ item.end_date | date:'dd-MM-yyyy' }}</td>
+            <td >{{ item.program_places  }}</td>
+            <td class="text-center" >{{ item.program_state  }}</td>
+            <td>
+              <button tuiButton type="button" appearance="custom" size="s" type="submit"
+                class="btn btn-success active"><i class="bi bi-tropical-storm"></i>
+              </button>
+
+              <button tuiButton type="button" appearance="custom" size="s" type="submit"
+                class="btn btn-warning mx-2 active"><i class="bi bi-arrow-counterclockwise"></i>
+              </button>
+
+              <button tuiButton type="button" appearance="custom" size="s" type="submit"
+                class="btn btn-danger active"><i class="bi bi-backspace-reverse"></i>
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
-      <!-- End Table with stripped rows -->
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
     </div>
   </div>
 
 </main>
 <!-- Fin main -->
-<!-- ======= Importation du footer ======= -->
-<app-footer></app-footer>
-<!-- ======= Fin Importation du footer ======= -->
+
 

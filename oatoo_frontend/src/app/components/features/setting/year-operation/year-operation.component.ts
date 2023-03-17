@@ -42,6 +42,28 @@ export class YearOperationComponent implements OnInit{
   }
 
 
+  deleteYearById(id:any) {
+    this.api.delete(id).subscribe((response : any) => {
+      
+      swal.fire({
+        title:'succès',
+        text:'Année supprimé avec succès',
+        icon:'success',
+        confirmButtonText:'OK',
+        timer:4000,
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', swal.stopTimer)
+          toast.addEventListener('mouseleave', swal.resumeTimer)
+        }
+      });
+    });
+  }
+
+
   addYear(yearForm: any) {
     console.log(yearForm);
     console.log(this.years);

@@ -1,4 +1,3 @@
-
 <!-- début du main -->
 <main id="main" class="main ">
   <div class="pagetitle">
@@ -25,56 +24,59 @@
         <div class="col-md-12">
           <label for="" class="mb-2">Nom du programme <span class="text-danger">*</span> </label>
           <input type="text" class="form-control" placeholder="Veuillez saisir le libéllé du programme"
-          name="program_name" [(ngModel)]="programs.program_name" required #program_name="ngModel">
+            name="program_name" [(ngModel)]="programs.program_name" required #program_name="ngModel">
           <div [hidden]="program_name.valid || program_name.pristine" class="alert alert-danger">
             Ce champ est obligatoire
           </div>
         </div>
         <div class="col-md-12">
           <label for="" class="mb-2">Description du programme <span class="text-danger">*</span> </label>
-          <textarea class="form-control" placeholder="Saisissez toutes les informations" rows="9"
-          name="desc_program" [(ngModel)]="programs.desc_program" required #desc_program="ngModel"></textarea>
+          <textarea class="form-control" placeholder="Saisissez toutes les informations" rows="9" name="desc_program"
+            [(ngModel)]="programs.desc_program" required #desc_program="ngModel"></textarea>
           <div [hidden]="desc_program.valid || desc_program.pristine" class="alert alert-danger">
             Ce champ est obligatoire
           </div>
         </div>
         <div class="col-md-6">
           <label for="" class="mb-2">Date de début <span class="text-danger">*</span> </label>
-          <input type="date" class="form-control" 
-          name="start_date" [(ngModel)]="programs.start_date" required #start_date="ngModel">
+          <input type="date" class="form-control" name="start_date" [(ngModel)]="programs.start_date" required
+            #start_date="ngModel">
           <div [hidden]="start_date.valid || start_date.pristine" class="alert alert-danger">
             Ce champ est obligatoire
           </div>
         </div>
         <div class="col-md-6">
           <label for="" class="mb-2">Date de fin <span class="text-danger">*</span></label>
-          <input type="date" class="form-control" 
-          name="end_date" [(ngModel)]="programs.end_date" required #end_date="ngModel">
+          <input type="date" class="form-control" name="end_date" [(ngModel)]="programs.end_date" required
+            #end_date="ngModel">
           <div [hidden]="end_date.valid || end_date.pristine" class="alert alert-danger">
             Ce champ est obligatoire
           </div>
         </div>
         <div class="col-md-12">
-            <label for="" class="mb-2">Nombre de place <span class="text-danger">*</span></label>
-            <input type="number" class="form-control"  placeholder="Entrez le nombre">
+          <label for="" class="mb-2">Nombre de place <span class="text-danger">*</span></label>
+          <input type="number" class="form-control" placeholder="Entrez le nombre" name="program_places"
+            [(ngModel)]="programs.program_places" required #program_places="ngModel">
+          <div [hidden]="program_places.valid || program_places.pristine" class="alert alert-danger">
+            Ce champ est obligatoire
           </div>
+        </div>
 
         <!-- pour la photo du programme nous prenons en compte que les images png jepg jpg-->
         <div class="col-md-12">
           <label for="" class="mb-2">Choisir une photo pour le programme</label>
           <input type="file" class="form-control" accept="image/png, image/gif, image/jpeg, image/jpg"
-          name="photo_program" [(ngModel)]="programs.photo_program" required #photo_program="ngModel">
+            name="photo_program" [(ngModel)]="programs.photo_program" required #photo_program="ngModel">
           <div [hidden]="photo_program.valid || photo_program.pristine" class="alert alert-danger">
             Ce champ est obligatoire
           </div>
         </div>
 
         <div class="mt-5">
-          <button tuiButton 
-          type="button" appearance="custom" size="s" type="submit" class="btn btn-success active" 
-          [disabled]="!programForm.form.valid">Enregistrer</button>
-          <button tuiButton 
-          type="button" appearance="custom" size="s" type="reset" class="btn btn-danger active  float-end">Annuler</button>
+          <button tuiButton type="button" appearance="custom" size="s" type="submit" class="btn btn-success active"
+            [disabled]="!programForm.form.valid">Enregistrer</button>
+          <button tuiButton type="button" appearance="custom" size="s" type="reset"
+            class="btn btn-danger active  float-end">Annuler</button>
         </div>
       </form>
       <!-- End Form -->

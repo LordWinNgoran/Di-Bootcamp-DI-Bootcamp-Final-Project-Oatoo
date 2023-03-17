@@ -1,7 +1,3 @@
-<!-- Importation du header -->
-<app-head></app-head>
-<!-- <Fin Importation du header -->
-
 <!-- début du main -->
 <main id="main" class="main ">
   <div class="pagetitle">
@@ -18,49 +14,92 @@
   <!-- Fin des éléments du breadcumbs -->
 
 
-  <!-- Début du cadre de notre formulaire -->
-  <div class="card">
+   <!-- Début du cadre de notre formulaire -->
+   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Remplir ma fiche de demandeur</h5>
       <p>Les champs obligatoires sont marqués par le signe ( <span class="text-danger">*</span> )</p>
-
       <!-- début Form -->
-      <form class="row g-3">
+      <form class="row g-3" #unemplyeesForm="ngForm" (ngSubmit)="unemplyeesForm.valid && addUnemployees(unemplyeesForm)">
 
         <!-- Description des differents formulaires -->
         <div class="col-md-12">
-          <label for="" class="mb-2">Nom du programme <span class="text-danger">*</span> </label>
-          <input type="text" class="form-control" placeholder="Veuillez saisir le libéllé du programme">
-        </div>
-        <div class="col-md-12">
-          <label for="" class="mb-2">Description du programme <span class="text-danger">*</span> </label>
-          <textarea class="form-control" placeholder="Saisissez toutes les informations" rows="9"></textarea>
-        </div>
-
-        <div class="col-md-6">
-          <label for="" class="mb-2">Date de début <span class="text-danger">*</span> </label>
-          <input type="date" class="form-control" id="birthday" name="birthday">
-        </div>
-        <div class="col-md-6">
-          <label for="" class="mb-2">Date de fin <span class="text-danger">*</span></label>
-          <input type="date" class="form-control" id="birthday" name="birthday">
-        </div>
-        <div class="col-md-12">
-            <label for="" class="mb-2">Nombre de place <span class="text-danger">*</span></label>
-            <input type="number" class="form-control"  placeholder="Entrez le nombre">
+          <label for="" class="mb-2">Nom de l'entreprise <span class="text-danger">*</span> </label>
+          <input type="text" class="form-control" placeholder="Veuillez saisir le libéllé du programme"
+          name="companie_name" [(ngModel)]="unemployees.companie_name" required #companie_name="ngModel">
+          <div [hidden]="unemployees.valid || companie_name.pristine" class="alert alert-danger">
+            Ce champ est obligatoire
           </div>
-
-        <!-- pour la photo du programme nous prenons en compte que les images png jepg jpg-->
-        <div class="col-md-12">
-          <label for="" class="mb-2">Choisir une photo pour le programme</label>
-          <input type="file" class="form-control" accept="image/png, image/gif, image/jpeg, image/jpg">
         </div>
-
+       
+        <div class="col-md-6">
+          <label for="" class="mb-2">Secteur d'activité <span class="text-danger">*</span> </label>
+          <input type="text" class="form-control" placeholder="Veuillez saisir le secteur d'activité"
+          name="companie_field" [(ngModel)]="companies.companie_field" required #companie_field="ngModel">
+          <div [hidden]="companie_field.valid || companie_field.pristine" class="alert alert-danger">
+            Ce champ est obligatoire
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="" class="mb-2">Régime <span class="text-danger">*</span> </label>
+          <select class="form-control"
+          name="companie_regime" [(ngModel)]="companies.companie_regime" required #companie_regime="ngModel">
+            <option selected>Choisir dans la liste</option>
+            <option value="EURL">Entreprise unipersonnelle à responsabilité limitée (EURL) </option>
+            <option value="SARL">Société à responsabilité limitée (SARL) </option>
+            <option value="SASU">Société par actions simplifiée unipersonnelle (SASU)</option>
+            <option value="SAS">Société par actions simplifiée (SAS)</option>
+            <option value="SA">Société anonyme (SA)</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+            <label for="" class="mb-2">Numéro de régistre <span class="text-danger">*</span> </label>
+            <input type="text" class="form-control" placeholder="Veuillez saisir le numéro de registre"
+            name="register_number" [(ngModel)]="companies.register_number" required #register_number="ngModel">
+            <div [hidden]="register_number.valid || register_number.pristine" class="alert alert-danger">
+              Ce champ est obligatoire
+            </div>
+          </div>
+        <div class="col-md-6">
+          <label for="" class="mb-2">Logo de l'entreprise<span class="text-danger">*</span></label>
+          <input type="file" class="form-control" accept="image/png, image/gif, image/jpeg, image/jpg"
+          name="companie_logo" [(ngModel)]="companies.companie_logo" required #companie_logo="ngModel">
+        </div>
+        <div class="col-md-6">
+            <label for="" class="mb-2">Taille de l'entreprise <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" placeholder="Nombre d'employé"
+            name="companie_size" [(ngModel)]="companies.companie_size" required #companie_size="ngModel">
+          </div>
+          <div class="col-md-6">
+            <label for="" class="mb-2">Revenu annuel<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" placeholder="revenu"
+            name="annual_revenue" [(ngModel)]="companies.annual_revenue" required #annual_revenue="ngModel">
+          </div>
+          <div class="col-md-6">
+              <label for="" class="mb-2">Site web de l'entreprise <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" placeholder="Site web"
+              name="web_site" [(ngModel)]="companies.web_site" required #web_site="ngModel">
+            </div>
+          <div class="col-md-6">
+            <label for="" class="mb-2">Lieu siège social<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" placeholder="Lieu géographique"
+            name="companie_location" [(ngModel)]="companies.companie_location" required #companie_location="ngModel">
+          </div>
+          <div class="col-md-6">
+            <label for="" class="mb-2">E-mail<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" placeholder="E-mail"
+            name="companie_email" [(ngModel)]="companies.companie_email" required #companie_email="ngModel">
+          </div>
+          <div class="col-md-6">
+            <label for="" class="mb-2">Contact de l'entreprise <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" placeholder="Contact"
+            name="company_phone" [(ngModel)]="companies.company_phone" required #company_phone="ngModel">
+          </div>
         <div class="mt-5">
-          <button tuiButton 
-          type="button" appearance="custom" size="s" type="submit" class="btn btn-success active">Enregistrer</button>
-          <button tuiButton 
-          type="button" appearance="custom" size="s" type="reset" class="btn btn-danger active  float-end">Annuler</button>
+          <button tuiButton type="button" appearance="custom" size="s" type="submit" [disabled]="!companyForm.form.valid"
+            class="btn btn-success active">Enregistrer</button>
+          <button tuiButton type="button" appearance="custom" size="s" type="reset"
+            class="btn btn-danger active  float-end">Annuler</button>
         </div>
       </form>
       <!-- End Form -->

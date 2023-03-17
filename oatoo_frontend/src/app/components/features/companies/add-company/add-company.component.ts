@@ -12,17 +12,11 @@ export class AddCompanyComponent {
 
   companies!: Company;
   data_companies:any;
-  columns  : any ;
-  p: number = 1;
-
- 
-
-  IsmodelClose=false;
 
   apiErrorThrown: boolean = false;
   errorResponseServer: any;
   constructor(private api: ApiCompanyService){
-    this.companies = new Company(null!,null!,null!,null!,null!,null!,null!,null!,null!,null!,null!,null!,null!);
+    this.companies = new Company(null!,null!,null!,null!,null!,null!,null!,null!,null!,null!,null!,null!,null!,"Vérification");
   }
 
   addCompany(companyForm: any) {

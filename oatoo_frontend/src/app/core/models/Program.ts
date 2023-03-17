@@ -9,7 +9,8 @@ export class Program {
       public program_places: number,
       public program_state: String,
       public created_at: Date,
-      public updated_at: Date
+      public updated_at: Date,
+      companie_fk:number
     ) {
     }
   

@@ -13,7 +13,8 @@ export class Company {
       public company_phone: String,
       public web_site: String,
       public created_at: Date,
-      public updated_at: Date
+      public updated_at: Date,
+      public account_state:String
     ) {
     }
   

@@ -40,17 +40,17 @@
             <td>{{ item.created_at | date :'dd-MM-yyyy' }}</td>
             <td >{{ item.updated_at | date :'dd-MM-yyyy' }}</td>
             <td>
-              <button tuiButton type="button" appearance="custom" size="s" type="submit"
+              <a tuiButton type="button" appearance="custom" size="s" 
                 class="btn btn-success active"><i class="bi bi-tropical-storm"></i>
-              </button>
+              </a>
 
-              <button tuiButton type="button" appearance="custom" size="s" type="submit"
+              <a tuiButton type="button" appearance="custom" size="s" 
                 class="btn btn-warning mx-2 active"><i class="bi bi-arrow-counterclockwise"></i>
-              </button>
+            </a>
 
-              <button tuiButton type="button" appearance="custom" size="s" type="submit"
-                class="btn btn-danger active"><i class="bi bi-backspace-reverse"></i>
-              </button>
+              <a
+                class="btn btn-danger active" (click)="deleteYearById(item.id)"><i class="bi bi-backspace-reverse"></i>
+          </a>
             </td>
           </tr>
         </tbody>
