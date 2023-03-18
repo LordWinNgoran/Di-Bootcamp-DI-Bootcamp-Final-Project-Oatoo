@@ -46,6 +46,7 @@ import { ManageUserComponent } from './components/features/users/manage-user/man
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import {DataTablesModule} from 'angular-datatables';
+import { CondtionUtilisationComponent } from './components/dashboard/condtion-utilisation/condtion-utilisation.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import {DataTablesModule} from 'angular-datatables';
     TypePieceComponent,
     PibComponent,
     UsersComponent,
-    ManageUserComponent
+    ManageUserComponent,
+    CondtionUtilisationComponent
   ],
   imports: [
   BrowserModule,

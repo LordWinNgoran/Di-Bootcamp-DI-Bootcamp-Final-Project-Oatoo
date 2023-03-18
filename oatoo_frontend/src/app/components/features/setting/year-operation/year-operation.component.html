@@ -40,17 +40,17 @@
             <td>{{ item.created_at | date :'dd-MM-yyyy' }}</td>
             <td >{{ item.updated_at | date :'dd-MM-yyyy' }}</td>
             <td>
-              <a tuiButton type="button" appearance="custom" size="s" 
+              <button tuiButton type="button" appearance="custom" size="s" 
                 class="btn btn-success active"><i class="bi bi-tropical-storm"></i>
-              </a>
+              </button>
 
-              <a tuiButton type="button" appearance="custom" size="s" 
+              <button tuiButton type="button" appearance="custom" size="s" 
                 class="btn btn-warning mx-2 active"><i class="bi bi-arrow-counterclockwise"></i>
-            </a>
+              </button>
 
-              <a
+              <button tuiButton type="button" appearance="custom" size="s"
                 class="btn btn-danger active" (click)="deleteYearById(item.id)"><i class="bi bi-backspace-reverse"></i>
-          </a>
+              </button>
             </td>
           </tr>
         </tbody>
@@ -63,7 +63,7 @@
 
 
   <!-- Modal pour ajouter une année -->
-  <div class="modal fade" id="addyear" tabindex="-1" data-bs-backdrop="false" data-target="#modal" [hidden]="IsmodelClose">
+  <div class="modal fade" id="addyear" tabindex="-1" data-bs-backdrop="false" data-target="#modal" >
     <div class="modal-dialog">
       <form class="row g-3" #yearForm="ngForm" (ngSubmit)="yearForm.valid && addYear(yearForm)">
         <div class="modal-content">

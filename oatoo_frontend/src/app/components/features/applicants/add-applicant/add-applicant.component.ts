@@ -16,7 +16,7 @@ export class AddApplicantComponent {
   apiErrorThrown: boolean = false;
   errorResponseServer: any;
   constructor(private api: ApiUnemployeeService){
-    this.unemployees = new Unemployees(null!,null!,null!,null!,null!,null!,null!,null!,null!,null!,null!,null!,null!,null!,null!,null!);
+    this.unemployees = new Unemployees(null!,null!,null!,null!,null!,null!,null!,null!,null!,0,null!,"C",null!,null!,null!,null!);
   }
 
   addUnemployees(unemplyeesForm: any) {
@@ -27,10 +27,10 @@ export class AddApplicantComponent {
         next: (response) => {
             swal.fire({
               title:'succès',
-              text:'Entreprise enregistré avec succès en attente de vérification',
+              text:'Votre demande a été enregistré avec succès mais une vérification sera effectuée dans le plus bref delai',
               icon:'success',
               confirmButtonText:'OK',
-              timer:4000,
+              timer:8000,
               toast: true,
               position: 'top-end',
               showConfirmButton: false,
@@ -42,7 +42,6 @@ export class AddApplicantComponent {
             });
             unemplyeesForm.reset();
     
-          
         },
         error: error => {
           swal.fire({

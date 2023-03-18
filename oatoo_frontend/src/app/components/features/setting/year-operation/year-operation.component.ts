@@ -72,10 +72,10 @@ export class YearOperationComponent implements OnInit{
         next: (response) => {
             swal.fire({
               title:'succès',
-              text:'Année enregistrée avec succès',
+              text:'Votre inscription a été enregistré avec succès, une analyse sera effectuée dans un délai relativement court',
               icon:'success',
               confirmButtonText:'OK',
-              timer:4000,
+              timer:9000,
               toast: true,
               position: 'top-end',
               showConfirmButton: false,
@@ -88,7 +88,6 @@ export class YearOperationComponent implements OnInit{
     
           yearForm.reset();
           this.apiErrorThrown = false;
-          this.IsmodelClose=true;
           this.getAllyears();
           
         },

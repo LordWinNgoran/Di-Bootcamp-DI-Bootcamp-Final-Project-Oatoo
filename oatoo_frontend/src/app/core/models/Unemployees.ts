@@ -12,7 +12,7 @@ export class Unemployees {
       public unemployed_goals: String,
       public unemployed_points: number,
       public unemployed_level: String,
-      public unemployed_state: number,
+      public unemployed_state: String,
       public unemployed_cv: String,
       public unemployed_img:String,
       public created_at: Date,

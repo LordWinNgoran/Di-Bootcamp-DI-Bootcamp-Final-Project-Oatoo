@@ -1,1 +1,50 @@
-<p>add-inscription works!</p>
+
+<!-- début du main -->
+<main id="main" class="main ">
+  <div class="pagetitle">
+    <h1>Inscription à un programme</h1>
+    <nav>
+      <!-- Les éléments du breadcumbs -->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+        <li class="breadcrumb-item">Programme</li>
+        <li class="breadcrumb-item ">Inscription</li>
+        <li class="breadcrumb-item active">Inscription dans un programme</li>
+      </ol>
+    </nav>
+  </div>
+  <!-- Fin des éléments du breadcumbs -->
+
+
+  <!-- Début du cadre de notre formulaire -->
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">S'inscrire à un programme</h5>
+
+      <!-- début Form -->
+      <form class="row g-3" #inscriptionForm="ngForm"
+      (ngSubmit)="inscriptionForm.valid && addInscription(inscriptionForm)">
+        <!-- Description des differents formulaires -->
+        <div class="col-md-6">
+            <input type="checkbox" name="approval" [(ngModel)]="inscriptions.approval" required #approval="ngModel">
+            En cochant la case vous accepetez les conditions d'utilisation et l'utilisation de vos données afin de reéaliser des statistiques
+        </div>
+        
+      
+
+        <div class="mt-5">
+          <button tuiButton type="button" appearance="custom" size="s" type="submit"
+            class="btn btn-success active" [disabled]="!inscriptionForm.form.valid">Enregistrer</button>
+          <button tuiButton type="button" appearance="custom" size="s" type="reset"
+            class="btn btn-danger active  float-end">Annuler</button>
+        </div>
+      </form>
+      <!-- End Form -->
+
+    </div>
+  </div>
+</main>
+<!-- Fin main -->
+<!-- ======= Importation du footer ======= -->
+<app-footer></app-footer>
+<!-- ======= Fin Importation du footer ======= -->
