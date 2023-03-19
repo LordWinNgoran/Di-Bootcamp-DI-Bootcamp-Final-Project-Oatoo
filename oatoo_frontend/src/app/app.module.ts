@@ -7,17 +7,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/landing/home/home.component';
 import { PageNotFoundComponent } from './components/landing/page-not-found/page-not-found.component';
-import {TuiButtonModule} from '@taiga-ui/core';
+import { TuiButtonModule } from '@taiga-ui/core';
 import { LoginComponent } from './auth/login/login.component';
 import { MainComponent } from './components/dashboard/main/main.component';
-import { HeaderComponent } from './components/share/header/header.component';
 import { TestComponent } from './components/dashboard/test/test.component';
 import { HeadComponent } from './components/dashboard/head/head.component';
 import { AddProgramComponent } from './components/features/programs/add-program/add-program.component';
 import { FooterComponent } from './components/dashboard/footer/footer.component';
 import { ListProgramsComponent } from './components/features/programs/list-programs/list-programs.component';
 import { ListParticipantsProgramsComponent } from './components/features/programs/list-participants-programs/list-participants-programs.component';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { AddCompanyComponent } from './components/features/companies/add-company/add-company.component';
 import { CompanyPibComponent } from './components/features/companies/company-pib/company-pib.component';
 import { ListCompaniesComponent } from './components/features/companies/list-companies/list-companies.component';
@@ -45,8 +44,9 @@ import { UsersComponent } from './components/features/setting/users/users.compon
 import { ManageUserComponent } from './components/features/users/manage-user/manage-user.component';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
-import {DataTablesModule} from 'angular-datatables';
+import { DataTablesModule } from 'angular-datatables';
 import { CondtionUtilisationComponent } from './components/dashboard/condtion-utilisation/condtion-utilisation.component';
+import { CommonModule } from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -55,7 +55,6 @@ import { CondtionUtilisationComponent } from './components/dashboard/condtion-ut
     PageNotFoundComponent,
     LoginComponent,
     MainComponent,
-    HeaderComponent,
     TestComponent,
     AddProgramComponent,
     HeadComponent,
@@ -90,19 +89,20 @@ import { CondtionUtilisationComponent } from './components/dashboard/condtion-ut
     CondtionUtilisationComponent
   ],
   imports: [
-  BrowserModule,
+    BrowserModule,
+    CommonModule,
     AppRoutingModule,
-      BrowserAnimationsModule,
-      TuiRootModule,
-      TuiDialogModule,
-      TuiAlertModule,
-      TuiButtonModule,
-      NgxPaginationModule,
-      HttpClientModule,
-      FormsModule,
-      DataTablesModule
-],
-  providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}],
+    BrowserAnimationsModule,
+    TuiRootModule,
+    TuiDialogModule,
+    TuiAlertModule,
+    TuiButtonModule,
+    NgxPaginationModule,
+    HttpClientModule,
+    FormsModule,
+    DataTablesModule
+  ],
+  providers: [{ provide: TUI_SANITIZER, useClass: NgDompurifySanitizer }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

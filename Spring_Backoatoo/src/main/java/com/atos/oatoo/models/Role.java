@@ -23,14 +23,24 @@ public class Role extends AbstractEntity implements GrantedAuthority {
 
     public static Role roleAdmin() {
         Role roleAdmin = new Role();
-        roleAdmin.setName(ERole.ROLE_ADMIN);
+        roleAdmin.setName(ERole.Administrateur);
         return roleAdmin;
     }
 
-    public static Role roleModerator() {
-        Role roleModerator = new Role();
-        roleModerator.setName(ERole.ROLE_MODERATOR);
-        return roleModerator;
+    public static Role roleEntreprise() {
+        Role roleEntreprise = new Role();
+        roleEntreprise.setName(ERole.Entreprise);
+        return roleEntreprise;
+    }
+    public static Role roleDemandeur() {
+        Role roleDemandeur = new Role();
+        roleDemandeur.setName(ERole.Demandeur);
+        return roleDemandeur;
+    }
+    public static Role roleAgence() {
+        Role roleAgence = new Role();
+        roleAgence.setName(ERole.Agence);
+        return roleAgence;
     }
 
     @Override

@@ -66,7 +66,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/api/v1/auth/signup","/api/v1/auth/signin")
+                .antMatchers("/api/v1/auth/signup","/api/v1/auth/signin","/api/v1/role")
                 .permitAll()
                 .anyRequest() // all other requests need to be authenticated
                 .authenticated()
@@ -103,7 +103,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private void createDefaultUser() {
         try {
-            Optional<Role> roleAdmin = roleRepository.findByName(ERole.ROLE_ADMIN);
+            Optional<Role> roleAdmin = roleRepository.findByName(ERole.Administrateur);
             User user = User.superAdmin(roleAdmin, bcryptPasswordEncoder());
             if (!userRepository.existsByEmail(user.getEmail())) {
                 userRepository.save(user);
@@ -118,7 +118,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         try {
                 roleRepository.save(Role.roleAdmin());
 
-                roleRepository.save(Role.roleModerator());
+                roleRepository.save(Role.roleAgence());
+                roleRepository.save(Role.roleDemandeur());
+                roleRepository.save(Role.roleEntreprise());
 
         } catch (Exception e) {
             e.printStackTrace();

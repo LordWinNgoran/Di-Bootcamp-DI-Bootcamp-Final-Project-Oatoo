@@ -5,7 +5,7 @@
 
 <div class="wrapper">
 <div class="logo">
-    <img src="./assets/img/logo.png" alt="">
+    <img src="/assets/img/logo.png" alt="">
 </div>
 <div class="text-center mt-4 name">
     Oatoo
@@ -16,28 +16,25 @@
 <form class="p-3 mt-3">
     <div class="form-field d-flex align-items-center">
         <span class="far fa-user"></span>
-        <input type="text" name="userName" id="userName" placeholder="Username">
+        <input type="text" placeholder="Username">
     </div>
     <div class="form-field d-flex align-items-center">
         <span class="fas fa-key"></span>
-        <input type="text" name="password" id="pwd" placeholder="Email">
+        <input type="text" placeholder="Email">
     </div>
     <div class="form-field d-flex align-items-center">
         <span class="fas fa-key"></span>
-        <input type="password" name="password" id="pwd" placeholder="Password">
+        <input type="password" placeholder="Password">
     </div>
     <div class="form-field d-flex align-items-center">
         <span class="fas fa-key"></span>
-        <input type="password" name="password" id="pwd" placeholder="Confirm Password">
+        <input type="password"  placeholder="Confirm Password">
     </div>
     <div class="form-field d-flex align-items-center">
         <span class="fas fa-key"></span>
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Choisissez votre profil</option>
-            <option value="Demandeur d'emploi">Demandeur d'emploi</option>
-            <option value="Entreprise">Entreprise</option>
-            <option value="Agence Gouv">Agence Gouv</option>
-          </select>
+        <select class="form-select" aria-label="Default select example">   
+            <option *ngFor="let role of data_roles"  > {{role.name}} </option>                                                                                              
+        </select>
     </div>
     <button class="btn mt-3">Créer son compte</button>
 </form>

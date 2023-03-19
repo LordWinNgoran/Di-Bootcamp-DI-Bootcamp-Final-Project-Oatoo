@@ -1,28 +1,35 @@
+<div id="particles-js" class="w-100 header-particles">
 
-    <div  id="particles-js" class="w-100 header-particles"  >
-
-    </div>
+</div>
 
 
 <div class="wrapper">
-    <div class="logo">
-        <img src="./assets/img/logo.png" alt="">
+  <div class="logo">
+    <img src="/assets/img/logo.png" alt="">
+  </div>
+  <div class="text-center mt-4 name">
+    Oatoo
+  </div>
+  <form class="p-3 mt-3" #loginForm="ngForm" (ngSubmit)="loginForm.valid && signin(loginForm)">
+    <div class="form-field d-flex align-items-center">
+      <span class="far fa-user"></span>
+      <input type="text" name="userName" id="userName" placeholder="E-mail"
+      name="email" [(ngModel)]="login.email" required #email="ngModel">
+      <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+        Ce champ est obligatoire
+      </div>
     </div>
-    <div class="text-center mt-4 name">
-        Oatoo
+    <div class="form-field d-flex align-items-center">
+      <span class="fas fa-key"></span>
+      <input type="password" placeholder="Password"
+      name="password" [(ngModel)]="login.password" required #password="ngModel">
+      <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+        Ce champ est obligatoire
+      </div>
     </div>
-    <form class="p-3 mt-3">
-        <div class="form-field d-flex align-items-center">
-            <span class="far fa-user"></span>
-            <input type="text" name="userName" id="userName" placeholder="Username">
-        </div>
-        <div class="form-field d-flex align-items-center">
-            <span class="fas fa-key"></span>
-            <input type="password" name="password" id="pwd" placeholder="Password">
-        </div>
-        <button class="btn mt-3" routerLink="/oatoo">Connexion</button>
-    </form>
-    <div class="text-center fs-6">
-        <a href="#">Mot de passe oublié?</a> or <a href="#">Créer un compte</a>
-    </div>
+    <button class="btn mt-3" type="submit" [disabled]="!loginForm.form.valid">Connexion</button>
+  </form>
+  <div class="text-center fs-6">
+    <a href="#">Mot de passe oublié?</a> or <a href="#">Créer un compte</a>
+  </div>
 </div>
