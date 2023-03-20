@@ -1,47 +1,53 @@
-
-<div  id="particles-js" class="w-100 header-particles"  >
+<div id="particles-js" class="w-100 header-particles">
 
 </div>
 
 <div class="wrapper">
-<div class="logo">
+  <div class="logo">
     <img src="/assets/img/logo.png" alt="">
-</div>
-<div class="text-center mt-4 name">
+  </div>
+  <div class="text-center mt-4 name">
     Oatoo
-</div>
-<div class="text-center mt-2 ">
+  </div>
+  <div class="text-center mt-2 ">
     Création de compte
-</div>
-<form class="p-3 mt-3">
-    <div class="form-field d-flex align-items-center">
+  </div>
+  <form class="p-3 mt-3" #userForm="ngForm" (ngSubmit)="userForm.valid && addUser(userForm)">
+        <div class="form-field d-flex align-items-center">
         <span class="far fa-user"></span>
-        <input type="text" placeholder="Username">
-    </div>
-    <div class="form-field d-flex align-items-center">
+        <input type="text" placeholder="Nom d'utilsateur" name="username" [(ngModel)]="signup.username" required
+            #username="ngModel">
+        </div>
+        <div class="form-field d-flex align-items-center">
         <span class="fas fa-key"></span>
-        <input type="text" placeholder="Email">
-    </div>
-    <div class="form-field d-flex align-items-center">
+        <input type="text" placeholder="Email" name="email" [(ngModel)]="signup.email" required #email="ngModel">
+        </div>
+        <div class="form-field d-flex align-items-center">
         <span class="fas fa-key"></span>
-        <input type="password" placeholder="Password">
-    </div>
-    <div class="form-field d-flex align-items-center">
+        <input type="password" placeholder="Password" name="password" [(ngModel)]="signup.password" required
+            #password="ngModel">
+        </div>
+        <div class="form-field d-flex align-items-center">
         <span class="fas fa-key"></span>
-        <input type="password"  placeholder="Confirm Password">
-    </div>
-    <div class="form-field d-flex align-items-center">
+        <input type="password" placeholder="Confirm Password">
+        </div>
+        <div class="form-field d-flex align-items-center">
         <span class="fas fa-key"></span>
-        <select class="form-select" aria-label="Default select example">   
-            <option *ngFor="let role of data_roles"  > {{role.name}} </option>                                                                                              
+        <select class="form-select" name="id_role" [(ngModel)]="signup.id_role" required #id_role="ngModel">
+            <option value=" " selected>Votre profil</option>
+            <option value="3">Demandeur</option>
+            <option value="4">Entreprise</option>
+            <option value="2">Agence Nationale</option>
+            <!--  <option *ngFor="let data of data_roles"  > {{ data }} </option>   -->
         </select>
-    </div>
-    <button class="btn mt-3">Créer son compte</button>
-</form>
-<div class="text-center fs-6">
-    <input class="form-check-input mx-2" type="checkbox" value="" id="flexCheckDefault">
+        </div>
+        <button class="btn mt-3" type="submit" [disabled]="!userForm.form.valid">Créer son compte</button>
+        <div class="text-center fs-6">
+        <input class="form-check-input mx-2" type="checkbox"
+        name="check" [(ngModel)]="signup.check" required #check="ngModel">
         <label class="form-check-label" for="flexCheckDefault">
-          Accepetez les conditions. <a href="">ici</a> 
+            Accepetez les conditions. <a href="">ici</a>
         </label>
-</div>
+        </div>
+  </form>
 </div>

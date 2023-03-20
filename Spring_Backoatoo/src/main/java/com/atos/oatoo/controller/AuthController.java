@@ -101,8 +101,7 @@ public class AuthController {
 
         // create user object
         User user = new User();
-        user.setLastname(signUpDto.getLastname());
-        user.setFirstname(signUpDto.getFirstname());
+        user.setUsername(signUpDto.getUsername());
         user.setEmail(signUpDto.getEmail());
         user.setRole(signUpDto.getRole());
         user.setPassword(passwordEncoder.encode(signUpDto.getPassword()));
@@ -112,9 +111,8 @@ public class AuthController {
                 Map.of(
                         "id",_user.getId(),
                         "createdAt", _user.getCreatedAt(),
-                        "firstname",_user.getFirstname(),
-                        "lastname",_user.getLastname(),
-                        "email", _user.getEmail()
+                        "email", _user.getEmail(),
+                        "username", _user.getUsername()
 
                         ));
     }

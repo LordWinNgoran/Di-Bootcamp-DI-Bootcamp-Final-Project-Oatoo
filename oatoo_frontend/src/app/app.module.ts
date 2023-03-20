@@ -1,7 +1,7 @@
 import { NgDompurifySanitizer } from "@tinkoff/ng-dompurify";
 import { TuiRootModule, TuiDialogModule, TuiAlertModule, TUI_SANITIZER } from "@taiga-ui/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,11 +42,14 @@ import { TypePieceComponent } from './components/features/setting/type-piece/typ
 import { PibComponent } from './components/features/setting/pib/pib.component';
 import { UsersComponent } from './components/features/setting/users/users.component';
 import { ManageUserComponent } from './components/features/users/manage-user/manage-user.component';
+import { RegisterComponent } from './auth/register/register.component';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { DataTablesModule } from 'angular-datatables';
 import { CondtionUtilisationComponent } from './components/dashboard/condtion-utilisation/condtion-utilisation.component';
 import { CommonModule } from "@angular/common";
+import { authInterceptorProviders } from "./core/services/helpers/auth.interceptor";
+import { AuthGuard } from "./core/guards/auth.guard";
 
 @NgModule({
   declarations: [
@@ -86,10 +89,12 @@ import { CommonModule } from "@angular/common";
     PibComponent,
     UsersComponent,
     ManageUserComponent,
-    CondtionUtilisationComponent
+    CondtionUtilisationComponent,
+    RegisterComponent
   ],
   imports: [
-    BrowserModule,
+
+  BrowserModule,
     CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -102,7 +107,8 @@ import { CommonModule } from "@angular/common";
     FormsModule,
     DataTablesModule
   ],
-  providers: [{ provide: TUI_SANITIZER, useClass: NgDompurifySanitizer }],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA],
+  providers: [authInterceptorProviders,AuthGuard,{ provide: TUI_SANITIZER, useClass: NgDompurifySanitizer }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

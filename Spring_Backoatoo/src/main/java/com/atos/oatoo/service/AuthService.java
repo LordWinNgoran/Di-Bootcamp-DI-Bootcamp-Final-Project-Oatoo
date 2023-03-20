@@ -39,6 +39,8 @@ public class AuthService implements IAuthService {
         this.jwtTokenProvider = jwtTokenProviders;
     }
 
+    
+
     @Override
     public String login(LoginDto loginDto) {
 
@@ -63,8 +65,7 @@ public class AuthService implements IAuthService {
         }
 
         User user = new User();
-        user.setLastname(registerDto.getLastname());
-        user.setFirstname(registerDto.getFirstname());
+        user.setUsername(registerDto.getUsername());
         user.setEmail(registerDto.getEmail());
         user.setRole(registerDto.getRole());
         user.setPassword(passwordEncoder.encode(registerDto.getPassword()));

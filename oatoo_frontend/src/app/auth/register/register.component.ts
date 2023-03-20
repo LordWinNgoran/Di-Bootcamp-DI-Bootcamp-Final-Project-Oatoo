@@ -12,16 +12,71 @@ declare var particlesJS: any;
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit{
-  data_roles!:any[];
-  constructor(private apirole: ApiRoleService, private apisignup: ApiSignupService,private route: Router){}
+  data_roles!:any;
+  signup!: Signup;
+  apiErrorThrown: boolean = false;
+  errorResponseServer: any;
+  constructor(private apirole: ApiRoleService, private apisignup: ApiSignupService,private route: Router){
+    this.signup = new Signup(null!,null!,null!,null!,null!)
+  }
   ngOnInit() {
-    this.apirole.findAll().subscribe((response : any) => {
+    particlesJS.load('particles-js', 'assets/data/particles1.json');
+    /* this.apirole.findAll().subscribe((response : any) => {
       this.data_roles = response;
       console.log(this.data_roles);
-    });
-    particlesJS.load('particles-js', 'assets/data/particles1.json');
-   
-}
+    }); */
+  }
 
+
+  addUser(userForm: any) {
+    console.log(userForm);
+    console.log(this.signup);
+    if (userForm.valid) {
+      this.apisignup.create(this.signup).subscribe({
+        next: (response) => {
+            swal.fire({
+              title:'succès',
+              text:'Votre inscription a été enregistré avec succès',
+              icon:'success',
+              confirmButtonText:'OK',
+              timer:9000,
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', swal.stopTimer)
+                toast.addEventListener('mouseleave', swal.resumeTimer)
+              }
+            });
+    
+            userForm.reset();
+          this.apiErrorThrown = false;
+          this.route.navigate(['/login']);
+          
+        },
+        error: error => {
+          swal.fire({
+            title:'Erreur',
+            text:'Erreur lors de la sauvegarde des informations !',
+            icon:'error',
+            confirmButtonText:'OK',
+            timer:4000,
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', swal.stopTimer)
+              toast.addEventListener('mouseleave', swal.resumeTimer)
+            }
+          });
+        
+
+        }
+      })
+    }
+
+  }
 
 }

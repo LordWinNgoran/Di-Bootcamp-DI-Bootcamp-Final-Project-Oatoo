@@ -8,21 +8,8 @@ export class ApiSignupService {
 
   constructor(private apiRequestService: ApiRequestService) { }
 
- /*  create(program: Program) {
-    return this.apiRequestService.post({endpoint: '/programs', data: program});
+  create(signup: Signup) {
+    return this.apiRequestService.post({endpoint: '/auth/signup', data: signup});
   }
-
-  update(program: Program) {
-    return this.apiRequestService.put({endpoint: '/programs', data: program});
-  }
-
-  findAll() {
-    return this.apiRequestService.get("/programs");
-  }
-
-  delete(id: string) {
-    return this.apiRequestService.delete(`/programs/${id}`);
-  }
- */
 
 }

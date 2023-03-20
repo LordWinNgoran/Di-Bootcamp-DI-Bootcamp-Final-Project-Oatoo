@@ -23,13 +23,9 @@ public class User extends AbstractEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @NotNull(message = "Le champ firstname est obligatoire")
-    @NotBlank(message = "Le champ firstname ne peut etre vide")
-    @Column(name = "firstname")
+    
     private String firstname;
 
-    @NotNull(message = "Le champ lastname est obligatoire")
-    @NotBlank(message = "Le champ lastname ne peut etre vide")
     @Column(name = "lastname")
     private String lastname;
 
@@ -37,6 +33,11 @@ public class User extends AbstractEntity {
     @NotBlank(message = "Le champ email ne peut etre vide")
     @Column(name = "email")
     private String email;
+
+    @NotNull(message = "Le champ username est obligatoire")
+    @NotBlank(message = "Le champ username ne peut etre vide")
+    @Column(name = "username")
+    private String username;
 
 
     @Column(name = "password")
@@ -52,6 +53,7 @@ public class User extends AbstractEntity {
         User user = new User();
         user.setFirstname("Melissa");
         user.setLastname("aaaa");
+        user.setUsername("lordwin");
         user.setEmail("hello@gmail.com");
         if (!(bCryptPasswordEncoder == null)) {
             user.setPassword(bCryptPasswordEncoder.encode("helloworld"));

@@ -42,7 +42,7 @@ public class JwtUserDetailsImpl implements UserDetails {
     public Claims getClaims() {
         Claims claims = new DefaultClaims();
         claims.setId(UUID.randomUUID().toString());
-        claims.setIssuer("SHABLOBANK");
+        claims.setIssuer("OATOO");
         claims.put("email", this.getUsername());
         claims.put("role", this.getAuthorities());
         claims.put("device", this.getDevice());

@@ -4,6 +4,7 @@ import swal from 'sweetalert2';
 import { Login } from '../../core/models/Login';
 import { ApiLoginService } from '../../core/services/api/api-login.service';
 import { Router } from '@angular/router';
+import { TokenStorageService } from 'src/app/core/services/api/token-storage.service';
 declare var particlesJS: any; 
 @Component({
   selector: 'app-login',
@@ -14,9 +15,13 @@ export class LoginComponent implements OnInit{
 
   login!: Login;
 
+  authStatus!:boolean;
+  isAuth=false;
+
   apiErrorThrown: boolean = false;
   errorResponseServer: any;
-  constructor(private api: ApiLoginService,private route: Router){
+  constructor(private api: ApiLoginService,private route: Router, private tokenStorage: TokenStorageService){
+    window.localStorage.clear();
     this.login = new Login(null!,null!);
   }
         ngOnInit() {
@@ -30,6 +35,11 @@ export class LoginComponent implements OnInit{
         if (loginForm.valid) {
           this.api.create(this.login).subscribe({
             next: (response) => {
+
+             
+              this.tokenStorage.saveToken(response.accessToken.id);
+              this.tokenStorage.saveUser(response);
+              console.log(response.accessToken.id);
                 swal.fire({
                   title:'succès',
                   text:'Vous étes connecté à Oatoo',
