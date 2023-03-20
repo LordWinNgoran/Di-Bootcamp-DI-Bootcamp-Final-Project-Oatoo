@@ -67,7 +67,7 @@ public class Companies {
 
     @Lob
     @Column(name="companie_logo")
-    var profilePicture: ByteArray
+    private byte[] companie_logo; 
 
 
    // propriété companie_location non null 
