@@ -22,7 +22,7 @@
       <p>Les champs obligatoires sont marqués par le signe ( <span class="text-danger">*</span> )</p>
 
       <!-- début Form -->
-      <form class="row g-3" #companyForm="ngForm" (ngSubmit)="companyForm.valid && addCompany(companyForm)">
+      <form class="row g-3" enctype="multipart/form-data" #companyForm="ngForm" (ngSubmit)="companyForm.valid && addCompany(companyForm)">
 
         <!-- Description des differents formulaires -->
         <div class="col-md-12">
@@ -65,7 +65,7 @@
         <div class="col-md-6">
           <label for="" class="mb-2">Logo de l'entreprise<span class="text-danger">*</span></label>
           <input type="file" class="form-control" accept="image/png, image/gif, image/jpeg, image/jpg"
-          name="companie_logo" [(ngModel)]="companies.companie_logo" required #companie_logo="ngModel">
+          name="companie_logo" [(ngModel)]="companies.companie_logo" required #companie_logo="ngModel" (change)="onFileSelected($event)">
         </div>
         <div class="col-md-6">
             <label for="" class="mb-2">Taille de l'entreprise <span class="text-danger">*</span></label>

@@ -9,7 +9,8 @@ import { ApiCompanyService } from '../../../../core/services/api/api-company.ser
   styleUrls: ['./add-company.component.css']
 })
 export class AddCompanyComponent {
-
+  
+  fileToUpload!: File;
   companies!: Company;
   data_companies:any;
 
@@ -68,7 +69,11 @@ export class AddCompanyComponent {
 
   }
 
-
+  onFileSelected(event: any) {
+    // Récupérer le fichier sélectionné
+    this.fileToUpload = event.target.files[0];
+    console.log(this.fileToUpload)
+  }
 
   
 }

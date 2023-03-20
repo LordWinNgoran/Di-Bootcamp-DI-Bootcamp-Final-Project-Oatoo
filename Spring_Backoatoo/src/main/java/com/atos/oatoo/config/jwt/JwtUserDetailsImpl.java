@@ -43,7 +43,7 @@ public class JwtUserDetailsImpl implements UserDetails {
         Claims claims = new DefaultClaims();
         claims.setId(UUID.randomUUID().toString());
         claims.setIssuer("OATOO");
-        claims.put("email", this.getUsername());
+        claims.put("email", this.getEmail());
         claims.put("role", this.getAuthorities());
         claims.put("device", this.getDevice());
         return claims;

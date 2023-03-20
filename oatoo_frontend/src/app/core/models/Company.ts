@@ -6,7 +6,7 @@ export class Company {
       public companie_regime: String,
       public companie_field: String,
       public companie_email: String,
-      public companie_logo: String,
+      public companie_logo: File,
       public companie_location: String,
       public companie_size: number,
       public annual_revenue: number,

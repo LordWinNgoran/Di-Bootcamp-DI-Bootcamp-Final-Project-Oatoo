@@ -117,7 +117,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private void createDefaultRole() {
         try {
                 roleRepository.save(Role.roleAdmin());
-
                 roleRepository.save(Role.roleAgence());
                 roleRepository.save(Role.roleDemandeur());
                 roleRepository.save(Role.roleEntreprise());

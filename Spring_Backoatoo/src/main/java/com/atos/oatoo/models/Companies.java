@@ -64,7 +64,10 @@ public class Companies {
    private String companie_email;
 
     // propriété companie_logo 
-   private String companie_logo;
+
+    @Lob
+    @Column(name="companie_logo")
+    var profilePicture: ByteArray
 
 
    // propriété companie_location non null 
