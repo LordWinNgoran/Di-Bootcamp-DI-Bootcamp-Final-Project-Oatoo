@@ -4,17 +4,17 @@ import { environment } from 'src/app/environment/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiRequestService {
-
-  apiType : string = "rest";
-
+export class ApiMultipartRequestService {
   constructor(private http: HttpClient) { }
   get(endpoint: string) {
     return this.http.get(`${environment.BASE_URL_API}${endpoint}`, {headers: this.httpHeader()});
   }
 
   post(parameter: Required<{ endpoint: string, data: any }>) {
-    return this.http.post(`${environment.BASE_URL_API}${parameter.endpoint}`, parameter.data, {headers: this.httpHeader()});
+    return this.http.post(`${environment.BASE_URL_API}${parameter.endpoint}`, parameter.data, {
+      reportProgress: true,
+      responseType: 'json'
+    });
   }
 
   put(parameter: Required<{ endpoint: string, data: any }>) {
@@ -25,24 +25,11 @@ export class ApiRequestService {
     return this.http.delete(`${environment.BASE_URL_API}${endpoint}`, {headers: this.httpHeader()});
   }
 
-  setApiType(api : string) {
-     this.apiType = api;
-  }
   httpHeader() {
-
-    if(this.apiType == "rest") {
-      return new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT, DELETE',
-        'Accept': 'application/json',
-      });
-    }
-
     return new HttpHeaders({
-      responseType: 'json'
-    })
-
-   
+      'Content-Type': 'multipart/form-data',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT, DELETE',
+    });
   }
 }

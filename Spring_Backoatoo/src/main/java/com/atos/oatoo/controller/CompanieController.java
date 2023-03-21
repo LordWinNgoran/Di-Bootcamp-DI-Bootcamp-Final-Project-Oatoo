@@ -2,6 +2,8 @@ package com.atos.oatoo.controller;
 
 import com.atos.oatoo.models.Companies;
 import com.atos.oatoo.repository.CompaniesRepository;
+import com.atos.oatoo.service.CompanyService;
+
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -12,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -20,6 +23,9 @@ public class CompanieController {
 
   @Autowired
   private CompaniesRepository companiesRepository;
+
+  @Autowired
+	private CompanyService companyService;
 
   @GetMapping
   public ResponseEntity<?> find() {
@@ -70,14 +76,38 @@ public class CompanieController {
   }
 
   @PostMapping
-  public ResponseEntity<?> save(@Validated @RequestBody Companies card_types) {
+  /* public ResponseEntity<?> save(@Validated @RequestBody Companies card_types) {
     Map<String, Object> map = new LinkedHashMap<String, Object>();
     companiesRepository.save(card_types);
     map.put("status", 201);
     map.put("message", "Company is Saved Successfully!");
     map.put("data", card_types);
     return new ResponseEntity<>(map, HttpStatus.CREATED);
-  }
+  } */
+
+  public String saveProduct(@RequestParam("companie_logo") MultipartFile companie_logo,
+    		@RequestParam("register_number") String register_number,
+        @RequestParam("companie_name") String companie_name,
+        @RequestParam("companie_field") String companie_field,
+        @RequestParam("companie_regime") String companie_regime,
+        @RequestParam("companie_location") String companie_location,
+        @RequestParam("companie_email") String companie_email,
+    		@RequestParam("companie_size") String companie_size,
+        @RequestParam("annual_revenue") String annual_revenue,
+    		@RequestParam("companie_phone") String companie_phone,
+        @RequestParam("web_site") String web_site,
+        @RequestParam("acccount_state") String acccount_state
+        )
+    {
+      int size = Integer.parseInt(companie_size);
+      double revenue = Double.valueOf(annual_revenue);
+    	companyService.saveProductToDB(companie_logo, register_number,companie_name,companie_regime,companie_field,
+      companie_location,companie_email
+      ,size,revenue, companie_phone, web_site,acccount_state);
+    	return "Entrepise enregistré avec succès";
+    }
+
+
 
   @PutMapping("/{id}")
   public ResponseEntity<?> update(

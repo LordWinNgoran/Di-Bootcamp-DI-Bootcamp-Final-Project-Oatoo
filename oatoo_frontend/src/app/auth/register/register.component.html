@@ -4,7 +4,10 @@
 
 <div class="wrapper">
   <div class="logo">
-    <img src="/assets/img/logo.png" alt="">
+    <a routerLink="/">
+        <img src="/assets/img/logo.png" alt="">
+    </a>
+   
   </div>
   <div class="text-center mt-4 name">
     Oatoo
@@ -34,7 +37,7 @@
         <div class="form-field d-flex align-items-center">
         <span class="fas fa-key"></span>
         <select class="form-select" name="id_role" [(ngModel)]="signup.id_role" required #id_role="ngModel">
-            <option value=" " selected>Votre profil</option>
+            <option value="0" selected>Votre profil</option>
             <option value="3">Demandeur</option>
             <option value="4">Entreprise</option>
             <option value="2">Agence Nationale</option>

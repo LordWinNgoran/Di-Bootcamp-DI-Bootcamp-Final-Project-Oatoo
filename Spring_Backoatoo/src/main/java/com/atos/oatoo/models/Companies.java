@@ -64,10 +64,8 @@ public class Companies {
    private String companie_email;
 
     // propriété companie_logo 
-
-    @Lob
-    @Column(name="companie_logo")
-    private byte[] companie_logo; 
+   @Lob
+	private String companie_logo;
 
 
    // propriété companie_location non null 

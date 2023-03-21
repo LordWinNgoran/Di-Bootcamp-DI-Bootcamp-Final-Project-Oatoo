@@ -3,7 +3,9 @@ package com.atos.oatoo.models;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -13,6 +15,9 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
+
 public class Image {
 	@Id
 	@Column(name = "id")
@@ -27,4 +32,11 @@ public class Image {
 
 	@Column(name = "image", unique = false, nullable = false, length = 100000)
 	private byte[] image;
+
+
+   private String companie_email;
+
+
+   private String companie_name;
+
 }

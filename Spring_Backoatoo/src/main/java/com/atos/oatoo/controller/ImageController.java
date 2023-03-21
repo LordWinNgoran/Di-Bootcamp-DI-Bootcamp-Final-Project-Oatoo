@@ -1,12 +1,14 @@
 package com.atos.oatoo.controller;
 
 import com.atos.oatoo.models.Image;
+import com.atos.oatoo.payload.CompanyDto;
 import com.atos.oatoo.repository.ImageRepository;
 import com.atos.oatoo.util.ImageUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -26,12 +28,13 @@ public class ImageController {
     ImageRepository imageRepository;
 
     @PostMapping("/upload/image")
-    public ResponseEntity<ImageUploadResponse> uplaodImage(@RequestParam("image") MultipartFile file)
+    public ResponseEntity<ImageUploadResponse> uplaodImage(@PathVariable(value = "companie_name") String companie_name,@RequestParam("image") MultipartFile file)
             throws IOException {
 
         imageRepository.save(Image.builder()
                 .name(file.getOriginalFilename())
                 .type(file.getContentType())
+                .companie_name( companie_name)
                 .image(ImageUtility.compressImage(file.getBytes())).build());
         return ResponseEntity.status(HttpStatus.OK)
                 .body(new ImageUploadResponse("Image uploaded successfully: " +

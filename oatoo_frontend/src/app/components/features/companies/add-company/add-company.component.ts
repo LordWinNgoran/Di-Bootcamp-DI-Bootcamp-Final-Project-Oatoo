@@ -10,21 +10,56 @@ import { ApiCompanyService } from '../../../../core/services/api/api-company.ser
 })
 export class AddCompanyComponent {
   
-  fileToUpload!: File;
-  companies!: Company;
+  selectedFiles?: FileList;
+  currentFile?: File;
+  progress = 0;
+  message = '';
+
+  companies!: any;
   data_companies:any;
 
   apiErrorThrown: boolean = false;
   errorResponseServer: any;
   constructor(private api: ApiCompanyService){
-    this.companies = new Company(null!,null!,null!,null!,null!,null!,null!,null!,null!,null!,null!,null!,null!,"Vérification");
+     this.companies = new Company(null!,null!,null!,null!,null!,null!,null!,null!,null!,null!,null!,null!,"compagnie_logo"); 
   }
+
+
+
+  selectFile(event: any): void {
+    this.selectedFiles = event.target.files;
+  }
+
+  upload(): void {
+    this.progress = 0;
+
+   
+  }
+
+
 
   addCompany(companyForm: any) {
     console.log(companyForm);
     console.log(this.companies);
+
+    if (this.selectedFiles) {
+      const file: File | null = this.selectedFiles.item(0);
+
+      if (file) {
+        this.currentFile = file;
+
+       
+      
+    
     if (companyForm.valid) {
-      this.api.create(this.companies).subscribe({
+      const form_data = new FormData();
+
+    for ( var key in this.companies ) {
+    form_data.append(key, this.companies[key]);
+    }
+    form_data.append("compagnie_logo",this.currentFile)
+    console.log(form_data.get)
+      this.api.create(form_data).subscribe({
         next: (response) => {
             swal.fire({
               title:'succès',
@@ -42,7 +77,6 @@ export class AddCompanyComponent {
               }
             });
             companyForm.reset();
-    
           
         },
         error: error => {
@@ -69,11 +103,12 @@ export class AddCompanyComponent {
 
   }
 
-  onFileSelected(event: any) {
-    // Récupérer le fichier sélectionné
-    this.fileToUpload = event.target.files[0];
-    console.log(this.fileToUpload)
+  this.selectedFiles = undefined;
+}
+
   }
+
+  
 
   
 }
