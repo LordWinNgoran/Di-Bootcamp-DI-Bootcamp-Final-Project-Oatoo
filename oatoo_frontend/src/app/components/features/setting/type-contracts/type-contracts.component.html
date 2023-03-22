@@ -62,7 +62,7 @@
   </div>
 
   <!-- Modal pour ajouter une année -->
-  <div class="modal fade" id="addtypcard" tabindex="-1" data-bs-backdrop="false" data-target="#modal" [hidden]="IsmodelClose">
+  <div class="modal fade" id="addtypcard" tabindex="-1" data-bs-backdrop="false" data-target="#modal">
     <div class="modal-dialog">
       <form class="row g-3" #contractForm="ngForm" (ngSubmit)="contractForm.valid && addTypeContract(contractForm)">
         <div class="modal-content">

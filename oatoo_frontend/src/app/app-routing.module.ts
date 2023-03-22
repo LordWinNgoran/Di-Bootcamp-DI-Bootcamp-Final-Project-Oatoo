@@ -36,6 +36,7 @@ import { UsersComponent } from './components/features/setting/users/users.compon
 import { ManageUserComponent } from './components/features/users/manage-user/manage-user.component';
 import { HeadComponent } from './components/dashboard/head/head.component';
 import { DetailCompanyComponent } from './components/features/companies/detail-company/detail-company.component';
+import { ActiveCompanyComponent } from './components/features/companies/active-company/active-company.component';
 
 // Définition des routes
 
@@ -120,6 +121,10 @@ const routes: Routes = [
           {
             path: 'details/:id',
             component: DetailCompanyComponent,
+          },
+          {
+            path: 'active/:id',
+            component: ActiveCompanyComponent,
           },
           {
             path: 'update',
@@ -314,6 +319,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -23,6 +23,10 @@ export class ApiCompanyService {
     return this.apiRequestService.get(`/companies/user/${id}`);
   }
 
+  UpdateAccount(id: number) {
+    return this.apiRequestService.get(`/companies/user/${id}`);
+  }
+
   findByCompanyId(id: number) {
     return this.apiRequestService.get(`/companies/${id}`);
   }

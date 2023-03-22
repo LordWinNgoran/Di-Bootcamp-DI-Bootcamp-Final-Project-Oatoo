@@ -72,7 +72,7 @@ export class YearOperationComponent implements OnInit{
         next: (response) => {
             swal.fire({
               title:'succès',
-              text:'Votre inscription a été enregistré avec succès, une analyse sera effectuée dans un délai relativement court',
+              text:'Année de gestion enregistré avec succès',
               icon:'success',
               confirmButtonText:'OK',
               timer:9000,

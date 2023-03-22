@@ -41,19 +41,24 @@
               <td>{{ item.companie_name  }}</td>
               <td >{{ item.companie_regime  }}</td>
               <td >{{ item.companie_field  }}</td>
-              <td >{{ item.account_state  }}</td>
-              <td>
-                <button tuiButton type="button" appearance="custom" size="s"
-                  class="btn btn-success active"  ><i class="bi bi-tropical-storm"></i>
-                </button>
+              <td >
                 
-  
-                <button tuiButton type="button" appearance="custom" size="s" type="submit"
-                  class="btn btn-warning mx-2 active"><i class="bi bi-arrow-counterclockwise"></i>
+                <button *ngIf="item.account_state==='L'" tuiButton type="button" appearance="custom" size="s"
+                  class="btn btn-danger active" title="Compte inactif" ><i class="bi bi-battery"></i>
                 </button>
-  
-                <button tuiButton type="button" appearance="custom" size="s" type="submit"
-                  class="btn btn-danger active"><i class="bi bi-backspace-reverse"></i>
+                <button *ngIf="item.account_state!='L'" tuiButton type="button" appearance="custom" size="s"
+                  class="btn btn-success active"  title="Compte actif"><i class="bi bi-battery"></i>
+                </button>
+              </td>
+              <td>
+                <button *ngIf="item.account_state==='L'" tuiButton type="button" appearance="custom" size="s"
+                  class="btn btn-success active" title="Activer l'entreprise" [routerLink]="['/user/company/active',item.id]"><i class="bi bi-tropical-storm"></i>
+                </button>
+                <button *ngIf="item.account_state!='L'" tuiButton type="button" appearance="custom" size="s"
+                  class="btn btn-warning active" title="Voir l'entreprise" [routerLink]="['/user/company/active',item.id]"><i class="bi bi-tropical-storm"></i>
+                </button>
+                <button tuiButton type="button" appearance="custom" size="s"
+                  class="btn btn-danger active mx-2" title="Supprimer cette entreprise"><i class="bi bi-backspace-reverse"></i>
                 </button>
               </td>
             </tr>

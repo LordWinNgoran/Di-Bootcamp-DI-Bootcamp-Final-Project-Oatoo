@@ -3,6 +3,7 @@ import { ApiCompanyService } from 'src/app/core/services/api/api-company.service
 import { HttpErrorResponse } from "@angular/common/http";
 import swal from 'sweetalert2';
 import { Company } from '../../../../core/models/Company';
+import { TokenStorageService } from 'src/app/core/services/api/token-storage.service';
 @Component({
   selector: 'app-mod-company',
   templateUrl: './mod-company.component.html',
@@ -18,13 +19,14 @@ export class ModCompanyComponent implements OnInit {
 
   apiErrorThrown: boolean = false;
   errorResponseServer: any;
+  user:any
 
-
-  constructor(private api: ApiCompanyService) { }
+  constructor(private api: ApiCompanyService,private token: TokenStorageService) { }
 
 
   ngOnInit() {
-    this.api.findAllbyUser(1).subscribe((response: any) => {
+    this.user = this.token.getUser()
+    this.api.findAllbyUser(this.user.id).subscribe((response: any) => {
       this.data_companies = response.data;
       console.log(this.data_companies)
       setTimeout(() => {

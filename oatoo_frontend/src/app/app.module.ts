@@ -51,6 +51,7 @@ import { CommonModule } from "@angular/common";
 import { authInterceptorProviders } from "./core/services/helpers/auth.interceptor";
 import { AuthGuard } from "./core/guards/auth.guard";
 import { DetailCompanyComponent } from './components/features/companies/detail-company/detail-company.component';
+import { ActiveCompanyComponent } from './components/features/companies/active-company/active-company.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import { DetailCompanyComponent } from './components/features/companies/detail-c
     ManageUserComponent,
     CondtionUtilisationComponent,
     RegisterComponent,
-    DetailCompanyComponent
+    DetailCompanyComponent,
+    ActiveCompanyComponent
   ],
   imports: [
 

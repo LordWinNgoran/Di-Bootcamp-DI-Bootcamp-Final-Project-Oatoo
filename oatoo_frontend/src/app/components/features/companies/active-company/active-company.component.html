@@ -1,0 +1,101 @@
+
+<!-- début du main -->
+<main id="main" class="main ">
+    <div class="pagetitle">
+      <h1>Entreprise</h1>
+      <nav>
+        <!-- Les éléments du breadcumbs -->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/user/oatoo">Accueil</a></li>
+          <li class="breadcrumb-item">Entreprise </li>
+          <li class="breadcrumb-item active">La liste des entreprises  </li>
+        </ol>
+      </nav>
+    </div>
+    <!-- Fin des éléments du breadcumbs -->
+  
+ 
+    <div class="container-xl px-4 mt-4">
+        <hr class="mt-0 mb-4">
+        <div class="row">
+            <div class="col-xl-4">
+                <!-- Profile picture card-->
+                <div class="card mb-4 mb-xl-0">
+                    <div class="card-header text-center">Logo</div>
+                    <div class="card-body text-center">
+                        <!-- Profile picture image-->
+                        <img class="img-account-profile rounded-circle mb-2" [src]='thumbnail' alt="">
+                        <!-- Profile picture help block-->
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8">
+                <!-- Account details card-->
+                <div class="card mb-4">
+                    <div class="card-header">{{data_companies.companie_name}}</div>
+                    <div class="card-body">
+                        <form>
+                            <!-- Form Group (username)-->
+                            <div class="mb-3 mt-3">
+                                <label class="small mb-1">Numéro de régistre</label>
+                                <input class="form-control" readonly type="text" value="{{data_companies.register_number}}">
+                            </div>
+                            <!-- Form Row-->
+                            <div class="row gx-3 mb-3">
+                                <!-- Form Group (first name)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1">Secteur d'activité</label>
+                                    <input class="form-control" readonly type="text"  value="{{data_companies.companie_field}}">
+                                </div>
+                                <!-- Form Group (last name)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1">Régime</label>
+                                    <input class="form-control" type="text" readonly  value="{{data_companies.companie_regime}}">
+                                </div>
+                            </div>
+                            <!-- Form Row        -->
+                            <div class="row gx-3 mb-3">
+                                <!-- Form Group (organization name)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" >Nombre de salariés</label>
+                                    <input class="form-control" type="text" readonly value="{{data_companies.companie_size}}">
+                                </div>
+                                <!-- Form Group (location)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" >Localisation</label>
+                                    <input class="form-control" type="text" readonly value="{{data_companies.companie_location}}">
+                                </div>
+                            </div>
+                            <!-- Form Group (email address)-->
+                            <div class="mb-3">
+                                <label class="small mb-1" >Site web</label>
+                                <input class="form-control" type="text" readonly value="{{data_companies.web_site}}">
+                            </div>
+                            <!-- Form Row-->
+                            <div class="row gx-3 mb-3">
+                                <!-- Form Group (phone number)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" >Revenu annuel</label>
+                                    <input class="form-control" readonly type="text" value="{{data_companies.annual_revenue}}">
+                                </div>
+                                <!-- Form Group (birthday)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputBirthday">Téléphone</label>
+                                    <input class="form-control" type="text" value="{{data_companies.company_phone}}">
+                                </div>
+
+                            </div>
+                            <!-- Save changes button-->
+                            <a class="btn btn-primary"  href="{{data_companies.web_site}}" target="_blank">Voir le site</a>
+                            <a class="btn btn-success float-end" *ngIf="data_companies.account_state==='L'">Activer l'entreprise</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+  </main>
+  <!-- Fin main -->
+
+
