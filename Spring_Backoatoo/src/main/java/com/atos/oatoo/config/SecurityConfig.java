@@ -103,7 +103,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private void createDefaultUser() {
         try {
-            Optional<Role> roleAdmin = roleRepository.findByName(ERole.Administrateur);
+            Optional<Role> roleAdmin = roleRepository.findByName(ERole.Entreprise);
             User user = User.superAdmin(roleAdmin, bcryptPasswordEncoder());
             if (!userRepository.existsByEmail(user.getEmail())) {
                 userRepository.save(user);

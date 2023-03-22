@@ -75,6 +75,33 @@ public class CompanieController {
     }
   }
 
+
+
+  @GetMapping("/user/{id}")
+  public ResponseEntity<?> findByUser(@PathVariable(value = "id") int id) {
+    Map<String, Object> map = new LinkedHashMap<String, Object>();
+    List<Companies> companies = companiesRepository.findByUser(id);
+    try {
+
+      if (!companies.isEmpty()) {
+        map.put("status", 200);
+        map.put("message", "Data found");
+        map.put("data", companies);
+        return new ResponseEntity<>(map, HttpStatus.OK);
+      } else {
+        map.clear();
+        map.put("status", 404);
+        map.put("message", "No company found");
+        return new ResponseEntity<>(map, HttpStatus.NOT_FOUND);
+      }
+    } catch (Exception ex) {
+      map.clear();
+      map.put("status", 400);
+      map.put("message", "<Error>");
+      return new ResponseEntity<>(map, HttpStatus.NOT_FOUND);
+    }
+  }
+
   @PostMapping
   /* public ResponseEntity<?> save(@Validated @RequestBody Companies card_types) {
     Map<String, Object> map = new LinkedHashMap<String, Object>();
@@ -85,26 +112,31 @@ public class CompanieController {
     return new ResponseEntity<>(map, HttpStatus.CREATED);
   } */
 
-  public String saveProduct(@RequestParam("companie_logo") MultipartFile companie_logo,
+  public ResponseEntity<?> saveProduct(
     		@RequestParam("register_number") String register_number,
         @RequestParam("companie_name") String companie_name,
-        @RequestParam("companie_field") String companie_field,
         @RequestParam("companie_regime") String companie_regime,
-        @RequestParam("companie_location") String companie_location,
+        @RequestParam("companie_field") String companie_field,
         @RequestParam("companie_email") String companie_email,
+        @RequestParam("companie_location") String companie_location,
     		@RequestParam("companie_size") String companie_size,
         @RequestParam("annual_revenue") String annual_revenue,
     		@RequestParam("companie_phone") String companie_phone,
         @RequestParam("web_site") String web_site,
-        @RequestParam("acccount_state") String acccount_state
+        @RequestParam("user_fk") String user_fk,
+        @RequestParam("companie_logo") MultipartFile companie_logo
         )
     {
       int size = Integer.parseInt(companie_size);
       double revenue = Double.valueOf(annual_revenue);
-    	companyService.saveProductToDB(companie_logo, register_number,companie_name,companie_regime,companie_field,
-      companie_location,companie_email
-      ,size,revenue, companie_phone, web_site,acccount_state);
-    	return "Entrepise enregistré avec succès";
+      String acccount_state = "L";
+      int id_user =Integer.parseInt(user_fk);
+    	companyService.saveProductToDB(register_number,companie_name,companie_regime,companie_field,companie_email,
+      companie_location,size,revenue, companie_phone, web_site,id_user,acccount_state,companie_logo);
+      Map<String, Object> map = new LinkedHashMap<String, Object>();
+      map.put("status", 201);
+      map.put("message", "Company is Saved Successfully!");
+      return new ResponseEntity<>(map, HttpStatus.CREATED);
     }
 
 

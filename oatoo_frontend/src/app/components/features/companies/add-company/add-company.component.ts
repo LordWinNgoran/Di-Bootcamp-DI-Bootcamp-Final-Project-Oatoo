@@ -1,41 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {HttpErrorResponse} from "@angular/common/http";
 import swal from 'sweetalert2';
 import { Company } from '../../../../core/models/Company';
 import { ApiCompanyService } from '../../../../core/services/api/api-company.service';
+import { Router } from '@angular/router';
+import { TokenStorageService } from 'src/app/core/services/api/token-storage.service';
 @Component({
   selector: 'app-add-company',
   templateUrl: './add-company.component.html',
   styleUrls: ['./add-company.component.css']
 })
-export class AddCompanyComponent {
+export class AddCompanyComponent  implements OnInit{
   
   selectedFiles?: FileList;
   currentFile?: File;
-  progress = 0;
-  message = '';
+  
 
+  user:any
   companies!: any;
-  data_companies:any;
-
+  
   apiErrorThrown: boolean = false;
   errorResponseServer: any;
-  constructor(private api: ApiCompanyService){
-     this.companies = new Company(null!,null!,null!,null!,null!,null!,null!,null!,null!,null!,null!,null!,"compagnie_logo"); 
+  constructor(private api: ApiCompanyService, private token :TokenStorageService, private route :Router){
+     this.companies = new Company(null!,null!,null!,null!,null!,null!,null!,null!,null!,null!); 
   }
 
+  ngOnInit() {
+    this.user = this.token.getUser()
+ }
 
 
   selectFile(event: any): void {
     this.selectedFiles = event.target.files;
   }
 
-  upload(): void {
-    this.progress = 0;
-
-   
-  }
-
+  
+  
 
 
   addCompany(companyForm: any) {
@@ -57,8 +57,8 @@ export class AddCompanyComponent {
     for ( var key in this.companies ) {
     form_data.append(key, this.companies[key]);
     }
-    form_data.append("compagnie_logo",this.currentFile)
-    console.log(form_data.get)
+    form_data.append("user_fk",this.user.id)
+    form_data.append("companie_logo",this.currentFile)
       this.api.create(form_data).subscribe({
         next: (response) => {
             swal.fire({
@@ -77,6 +77,7 @@ export class AddCompanyComponent {
               }
             });
             companyForm.reset();
+            this.route.navigate(['/user/company/update']);
           
         },
         error: error => {

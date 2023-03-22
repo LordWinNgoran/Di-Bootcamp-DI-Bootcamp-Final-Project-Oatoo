@@ -18,9 +18,19 @@
   <form class="p-3 mt-3" #userForm="ngForm" (ngSubmit)="userForm.valid && addUser(userForm)">
         <div class="form-field d-flex align-items-center">
         <span class="far fa-user"></span>
-        <input type="text" placeholder="Nom d'utilsateur" name="username" [(ngModel)]="signup.username" required
+        <input type="text" placeholder="username" name="username" [(ngModel)]="signup.username" required
             #username="ngModel">
         </div>
+        <div class="form-field d-flex align-items-center">
+          <span class="far fa-user"></span>
+          <input type="text" placeholder="Votre nom" name="lastname" [(ngModel)]="signup.lastname" required
+              #lastname="ngModel">
+          </div>
+          <div class="form-field d-flex align-items-center">
+            <span class="far fa-user"></span>
+            <input type="text" placeholder="Vos prénoms" name="firstname" [(ngModel)]="signup.firstname" required
+                #firstname="ngModel">
+            </div>
         <div class="form-field d-flex align-items-center">
         <span class="fas fa-key"></span>
         <input type="text" placeholder="Email" name="email" [(ngModel)]="signup.email" required #email="ngModel">
@@ -32,23 +42,12 @@
         </div>
         <div class="form-field d-flex align-items-center">
         <span class="fas fa-key"></span>
-        <input type="password" placeholder="Confirm Password">
-        </div>
-        <div class="form-field d-flex align-items-center">
-        <span class="fas fa-key"></span>
-        <select class="form-select" name="id_role" [(ngModel)]="signup.id_role" required #id_role="ngModel">
-            <option value="0" selected>Votre profil</option>
-            <option value="3">Demandeur</option>
-            <option value="4">Entreprise</option>
-            <option value="2">Agence Nationale</option>
-            <!--  <option *ngFor="let data of data_roles"  > {{ data }} </option>   -->
-        </select>
         </div>
         <button class="btn mt-3" type="submit" [disabled]="!userForm.form.valid">Créer son compte</button>
         <div class="text-center fs-6">
-        <input class="form-check-input mx-2" type="checkbox"
+        <input class="form-check-input mx-2 mt-3" type="checkbox"
         name="check" [(ngModel)]="signup.check" required #check="ngModel">
-        <label class="form-check-label" for="flexCheckDefault">
+        <label class="form-check-label mt-3" for="flexCheckDefault">
             Accepetez les conditions. <a href="">ici</a>
         </label>
         </div>

@@ -35,6 +35,7 @@ import { PibComponent } from './components/features/setting/pib/pib.component';
 import { UsersComponent } from './components/features/setting/users/users.component';
 import { ManageUserComponent } from './components/features/users/manage-user/manage-user.component';
 import { HeadComponent } from './components/dashboard/head/head.component';
+import { DetailCompanyComponent } from './components/features/companies/detail-company/detail-company.component';
 
 // Définition des routes
 
@@ -115,6 +116,10 @@ const routes: Routes = [
           {
             path: 'pib',
             component: CompanyPibComponent,
+          },
+          {
+            path: 'details/:id',
+            component: DetailCompanyComponent,
           },
           {
             path: 'update',

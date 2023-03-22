@@ -97,6 +97,9 @@ public class Companies {
    private String web_site;
 
 
+   
+   @NotNull(message = "Le champ user_fk est obligatoire")
+   private int user_fk;
 
    // propriété account_state par défaut Vérification sinon actif ou inactif 
    @NotNull(message = "Le champ état du compte est obligatoire")

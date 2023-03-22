@@ -9,11 +9,9 @@ export class Company {
       public companie_location: String,
       public companie_size: number,
       public annual_revenue: number,
-      public company_phone: String,
+      public companie_phone: String,
       public web_site: String,
-      public created_at: Date,
-      public updated_at: Date,
-      public account_state:String
+      
     ) {
     }
   

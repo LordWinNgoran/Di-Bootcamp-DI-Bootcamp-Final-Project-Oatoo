@@ -7,6 +7,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
+import java.util.List;
 import java.util.Optional;
 
 @Data
@@ -58,9 +60,9 @@ public class User extends AbstractEntity {
         user.setFirstname("Kouadio Jean Cyrille");
         user.setLastname("N'Goran");
         user.setUsername("lordwin@13");
-        user.setEmail("hello@gmail.com");
+        user.setEmail("lordwin@gmail.com");
         if (!(bCryptPasswordEncoder == null)) {
-            user.setPassword(bCryptPasswordEncoder.encode("helloworld"));
+            user.setPassword(bCryptPasswordEncoder.encode("naruto"));
         }
         user.setRole(role.get());
 

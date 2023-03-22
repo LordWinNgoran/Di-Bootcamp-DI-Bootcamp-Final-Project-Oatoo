@@ -109,6 +109,9 @@ bg-primary-2{
     object-fit: cover;
 }
 
+.desc p{
+  font-size: 16px;
+}
 
 
 

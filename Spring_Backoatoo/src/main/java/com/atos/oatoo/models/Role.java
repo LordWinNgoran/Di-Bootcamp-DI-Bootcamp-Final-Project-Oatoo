@@ -21,17 +21,17 @@ public class Role extends AbstractEntity implements GrantedAuthority {
     @Column(name = "name", length = 20)
     private ERole name;
 
+    public static Role roleEntreprise() {
+        Role roleEntreprise = new Role();
+        roleEntreprise.setName(ERole.Entreprise);
+        return roleEntreprise;
+    }
     public static Role roleAdmin() {
         Role roleAdmin = new Role();
         roleAdmin.setName(ERole.Administrateur);
         return roleAdmin;
     }
 
-    public static Role roleEntreprise() {
-        Role roleEntreprise = new Role();
-        roleEntreprise.setName(ERole.Entreprise);
-        return roleEntreprise;
-    }
     public static Role roleDemandeur() {
         Role roleDemandeur = new Role();
         roleDemandeur.setName(ERole.Demandeur);

@@ -50,6 +50,7 @@ import { CondtionUtilisationComponent } from './components/dashboard/condtion-ut
 import { CommonModule } from "@angular/common";
 import { authInterceptorProviders } from "./core/services/helpers/auth.interceptor";
 import { AuthGuard } from "./core/guards/auth.guard";
+import { DetailCompanyComponent } from './components/features/companies/detail-company/detail-company.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { AuthGuard } from "./core/guards/auth.guard";
     UsersComponent,
     ManageUserComponent,
     CondtionUtilisationComponent,
-    RegisterComponent
+    RegisterComponent,
+    DetailCompanyComponent
   ],
   imports: [
 

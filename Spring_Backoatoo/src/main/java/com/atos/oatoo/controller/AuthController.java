@@ -98,6 +98,7 @@ public class AuthController {
     HashMap body = new HashMap<>();
     body.put("role", user.getRole().getName());
     body.put("email", user.getEmail());
+    body.put("id", user.getId());
     body.put("username", user.getUsername());
     body.put("lastname", user.getLastname());
     body.put("firstname", user.getFirstname());

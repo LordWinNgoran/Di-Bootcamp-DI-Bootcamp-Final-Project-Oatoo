@@ -64,8 +64,7 @@
           </div>
         <div class="col-md-6">
           <label for="" class="mb-2">Logo de l'entreprise<span class="text-danger">*</span></label>
-          <input type="file" class="form-control" (change)="selectFile($event)" accept="image/png, image/gif, image/jpeg, image/jpg"
-          name="companie_logo" [(ngModel)]="companies.companie_logo"  required #companie_logo="ngModel" >
+          <input type="file" class="form-control" (change)="selectFile($event)" accept="image/png, image/gif, image/jpeg, image/jpg">
         </div>
         <div class="col-md-6">
             <label for="" class="mb-2">Taille de l'entreprise <span class="text-danger">*</span></label>
@@ -95,7 +94,7 @@
           <div class="col-md-6">
             <label for="" class="mb-2">Contact de l'entreprise <span class="text-danger">*</span></label>
             <input type="text" class="form-control" placeholder="Contact"
-            name="company_phone" [(ngModel)]="companies.company_phone" required #company_phone="ngModel">
+            name="company_phone" [(ngModel)]="companies.companie_phone" required #company_phone="ngModel">
           </div>
         <div class="mt-5">
           <button tuiButton type="button" appearance="custom" size="s" type="submit" [disabled]="!companyForm.form.valid"

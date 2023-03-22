@@ -19,9 +19,7 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">La liste des entreprises</h5>
-        <p>Nous présentons la liste des entreprises. Vous pouvez ajouter une entreprise ici. <a tuiButton
-            type="button" appearance="custom" size="s" class="btn btn-primary active float-end"
-            routerLink="/user/company/add" >Ajouter une entreprise</a></p>
+        <p>Nous présentons la liste des entreprises.</p>
   
         <!-- Table with stripped rows -->
         <table class="table table-striped table-bordered table-sm row-border hover" id="datatableexample">
@@ -45,9 +43,10 @@
               <td >{{ item.companie_field  }}</td>
               <td >{{ item.account_state  }}</td>
               <td>
-                <button tuiButton type="button" appearance="custom" size="s" type="submit"
-                  class="btn btn-success active"><i class="bi bi-tropical-storm"></i>
+                <button tuiButton type="button" appearance="custom" size="s"
+                  class="btn btn-success active"  ><i class="bi bi-tropical-storm"></i>
                 </button>
+                
   
                 <button tuiButton type="button" appearance="custom" size="s" type="submit"
                   class="btn btn-warning mx-2 active"><i class="bi bi-arrow-counterclockwise"></i>

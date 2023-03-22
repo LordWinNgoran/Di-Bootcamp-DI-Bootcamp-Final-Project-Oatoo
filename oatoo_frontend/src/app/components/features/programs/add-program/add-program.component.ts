@@ -3,6 +3,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 import swal from 'sweetalert2';
 import { Program } from '../../../../core/models/Program';
 import { ApiProgramService } from '../../../../core/services/api/api-program.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-program',
   templateUrl: './add-program.component.html',
@@ -18,7 +19,7 @@ export class AddProgramComponent {
 
   apiErrorThrown: boolean = false;
   errorResponseServer: any;
-  constructor(private api: ApiProgramService){
+  constructor(private api: ApiProgramService, private route:Router){
     this.programs = new Program(null!,null!,null!,null!,null!,null!,"L",null!,null!,1);
   }
 
@@ -44,6 +45,7 @@ export class AddProgramComponent {
               }
             });
             programForm.reset();
+            this.route.navigate(['/user/program/list'])
           
         },
         error: error => {

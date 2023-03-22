@@ -19,6 +19,13 @@ export class ApiCompanyService {
   findAll() {
     return this.apiRequestService.get("/companies");
   }
+  findAllbyUser(id: number) {
+    return this.apiRequestService.get(`/companies/user/${id}`);
+  }
+
+  findByCompanyId(id: number) {
+    return this.apiRequestService.get(`/companies/${id}`);
+  }
 
   delete(id: string) {
     return this.apiRequestService.delete(`/companies/${id}`);

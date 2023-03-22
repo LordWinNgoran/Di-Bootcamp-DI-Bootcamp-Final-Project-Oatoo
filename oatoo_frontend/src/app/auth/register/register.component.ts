@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit{
   apiErrorThrown: boolean = false;
   errorResponseServer: any;
   constructor(private apirole: ApiRoleService, private apisignup: ApiSignupService,private route: Router){
-    this.signup = new Signup(null!,null!,null!,null!,null!)
+    this.signup = new Signup(null!,null!,null!,null!,null!,4,null!)
   }
   ngOnInit() {
     particlesJS.load('particles-js', 'assets/data/particles1.json');
