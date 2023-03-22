@@ -87,8 +87,8 @@
                             </div>
                             <!-- Save changes button-->
                             <a class="btn btn-primary"  href="{{data_companies.web_site}}" target="_blank">Voir le site</a>
-                            <a class="btn btn-success float-end" *ngIf="data_companies.account_state==='L'">Activer l'entreprise</a>
-                        </form>
+                            <button class="btn btn-success float-end" (click)="UpdateAccount(data_companies.id)"  *ngIf="data_companies.account_state==='L' && this.isButtonVisible" >Activer l'entreprise</button>
+                        </form>                                                                                             
                     </div>
                 </div>
             </div>

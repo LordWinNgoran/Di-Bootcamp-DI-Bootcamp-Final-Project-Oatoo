@@ -24,7 +24,7 @@ export class ApiCompanyService {
   }
 
   UpdateAccount(id: number) {
-    return this.apiRequestService.get(`/companies/user/${id}`);
+    return this.apiRequestService.putChange(`/companies/activeAccount/${id}`);
   }
 
   findByCompanyId(id: number) {

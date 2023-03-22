@@ -185,8 +185,7 @@ public class CompanieController {
 
   @PutMapping("/activeAccount/{id}")
   public ResponseEntity<?> updateAccount(
-    @PathVariable(value = "id") long id,
-    @RequestBody Companies companydetail
+    @PathVariable(value = "id") long id
   ) {
     Map<String, Object> map = new LinkedHashMap<String, Object>();
     companiesRepository.UpdateCompanyAccount(id);

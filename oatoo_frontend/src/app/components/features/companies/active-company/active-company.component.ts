@@ -14,7 +14,7 @@ export class ActiveCompanyComponent {
   data_companies: any;
   dtOptions: any = {};
   id: any
-
+  isButtonVisible = true
   IsmodelClose = false;
 
   apiErrorThrown: boolean = false;
@@ -39,12 +39,24 @@ export class ActiveCompanyComponent {
   }
 
 
-    UpdateAccount(){
-      this.api.findByCompanyId(this.id).subscribe((response: any) => {
-        this.data_companies = response.data;
-        let objectURL= 'data:image/jpeg;base64,' + this.data_companies.companie_logo;
-           this.thumbnail = this.sanitizer.bypassSecurityTrustUrl(objectURL);
-        console.log("OK",this.data_companies)
+    UpdateAccount(id:number){
+      this.api.UpdateAccount(id).subscribe((response: any) => {
+        swal.fire({
+          title:'Activation de compte',
+          text:'Entreprise activé avec succès vous pouvez ajouter des programmes',
+          icon:'info',
+          confirmButtonText:'OK',
+          timer:5000,
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', swal.stopTimer)
+            toast.addEventListener('mouseleave', swal.resumeTimer)
+          }
+        });
+        this.isButtonVisible = false;
       });
     }
 

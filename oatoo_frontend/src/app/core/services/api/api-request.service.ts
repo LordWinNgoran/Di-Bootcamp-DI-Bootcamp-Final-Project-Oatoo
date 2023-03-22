@@ -20,6 +20,9 @@ export class ApiRequestService {
   put(parameter: Required<{ endpoint: string, data: any }>) {
     return this.http.put(`${environment.BASE_URL_API}${parameter.endpoint}`, parameter.data, {headers: this.httpHeader()});
   }
+  putChange(endpoint: string) {
+    return this.http.put(`${environment.BASE_URL_API}${endpoint}`, {headers: this.httpHeader()});
+  }
 
   delete(endpoint: string) {
     return this.http.delete(`${environment.BASE_URL_API}${endpoint}`, {headers: this.httpHeader()});

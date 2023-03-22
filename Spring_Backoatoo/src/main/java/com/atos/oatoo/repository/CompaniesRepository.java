@@ -19,7 +19,8 @@ public interface CompaniesRepository extends CrudRepository<Companies, Long>{
     @Query(nativeQuery=true,value ="SELECT c.* FROM companies c WHERE c.user_fk=:user_fk")
     List<Companies> findByUser( int user_fk);
 
-    @Modifying
+   
+    @Modifying(clearAutomatically = true)
     @Query(nativeQuery=true,value ="UPDATE companies c SET c.account_state ='A' WHERE c.id =:id")
     void UpdateCompanyAccount(long id);
 
