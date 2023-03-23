@@ -39,15 +39,23 @@ Règle `Liste des entités utilisées dans l'application au niveau du front-end 
 
 `Les Propiétés de l'entité demandeur`
 ``` --id
-    --name
-    --adress
+    --nom
+    --prénoms
     --phone
     --email
-    --gestionnaire
-    --heure d'ouverture
-    --heure de fermeture
-    --createdat
-    --updatedat
+    --date de naissance
+    --Lieu de naissance
+    --groupe sanguin
+    --type de pièce
+    --numéro de la pièce
+    --objectifs
+    --points
+    --niveau d'étude
+    --état du compte
+    --cv
+    --photo
+    --date de création
+    --date de modification
 
 ```
 ---
