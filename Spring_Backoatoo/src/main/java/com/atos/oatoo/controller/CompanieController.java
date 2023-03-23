@@ -102,6 +102,33 @@ public class CompanieController {
     }
   }
 
+
+
+  @GetMapping("/companyactive")
+  public ResponseEntity<?> findAllCompanyActive() {
+    Map<String, Object> map = new LinkedHashMap<String, Object>();
+    List<Companies> companies = companiesRepository.findAllCompanyActive();
+    try {
+
+      if (!companies.isEmpty()) {
+        map.put("status", 200);
+        map.put("message", "Data found");
+        map.put("data", companies);
+        return new ResponseEntity<>(map, HttpStatus.OK);
+      } else {
+        map.clear();
+        map.put("status", 404);
+        map.put("message", "No company found");
+        return new ResponseEntity<>(map, HttpStatus.NOT_FOUND);
+      }
+    } catch (Exception ex) {
+      map.clear();
+      map.put("status", 400);
+      map.put("message", "<Error>");
+      return new ResponseEntity<>(map, HttpStatus.NOT_FOUND);
+    }
+  }
+
   @PostMapping
   /* public ResponseEntity<?> save(@Validated @RequestBody Companies card_types) {
     Map<String, Object> map = new LinkedHashMap<String, Object>();

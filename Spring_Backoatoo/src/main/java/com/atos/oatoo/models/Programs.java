@@ -33,17 +33,18 @@ public class Programs {
   private String desc_program;
 
   // propriété photo_program
+  @Lob
   private String photo_program;
 
   // propriété start_date not null;
   @NotNull(message = "Le champ date de début du programme est obligatoire")
   @NotBlank(message = "Le champ date de début du programme ne peut être vide")
-  private String start_date;
+  private Date start_date;
 
   // propriété end_date not null;
   @NotNull(message = "Le champ date de fin du programme est obligatoire")
   @NotBlank(message = "Le champ date de fin du programme ne peut être vide")
-  private String end_date;
+  private Date end_date;
 
   // propriété program_places not null;
   @NotNull(message = "Le champ nombre de places est obligatoire")

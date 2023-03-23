@@ -2,6 +2,10 @@ package com.atos.oatoo.controller;
 
 import com.atos.oatoo.models.Programs;
 import com.atos.oatoo.repository.PorgramsRepository;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -12,6 +16,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import com.atos.oatoo.service.ProgramService;
 
 
 
@@ -72,14 +78,40 @@ public class ProgramController {
     }
   
     @PostMapping
-    public ResponseEntity<?> save(@Validated @RequestBody Programs programs) {
+  /* public ResponseEntity<?> save(@Validated @RequestBody Companies card_types) {
+    Map<String, Object> map = new LinkedHashMap<String, Object>();
+    companiesRepository.save(card_types);
+    map.put("status", 201);
+    map.put("message", "Company is Saved Successfully!");
+    map.put("data", card_types);
+    return new ResponseEntity<>(map, HttpStatus.CREATED);
+  } */
+
+  public ResponseEntity<?> saveProgram(
+    		@RequestParam("program_name") String program_name,
+        @RequestParam("desc_program") String desc_program,
+        @RequestParam("start_date") String start_date,
+        @RequestParam("end_date") String end_date,
+        @RequestParam("program_places") String program_places,
+        @RequestParam("program_state") char program_state,
+    		@RequestParam("companie_fk") String companie_fk,
+        @RequestParam("photo_program") MultipartFile photo_program
+        ) throws ParseException
+    {
+      int places = Integer.parseInt(program_places);
+      int fk_companie = Integer.parseInt(companie_fk);
+
+      Date date1 = new SimpleDateFormat("yyyy-MM-dd").parse(start_date); 
+      Date date2 = new SimpleDateFormat("yyyy-MM-dd").parse(end_date); 
+      
+    	ProgramService.saveProgramToDB(program_name,desc_program,date1,date2,places,
+      program_state,fk_companie,photo_program);
       Map<String, Object> map = new LinkedHashMap<String, Object>();
-      porgramsRepository.save(programs);
       map.put("status", 201);
-      map.put("message", "Program is Saved Successfully!");
-      map.put("data", programs);
+      map.put("message", "Company is Saved Successfully!");
       return new ResponseEntity<>(map, HttpStatus.CREATED);
     }
+
   
     @PutMapping("/{id}")
     public ResponseEntity<?> update(

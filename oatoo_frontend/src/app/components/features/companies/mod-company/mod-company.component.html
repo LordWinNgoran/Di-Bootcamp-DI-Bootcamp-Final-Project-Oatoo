@@ -17,10 +17,12 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">La liste des entreprises</h5>
-        <p>Nous présentons la liste des entreprises. Vous pouvez ajouter une entreprise ici </p><a tuiButton
-        type="button" appearance="custom" size="s" class="btn btn-primary active float-end"
+        <p>Nous présentons la liste des entreprises. Vous pouvez ajouter une entreprise ici
+          <a tuiButton
+        type="button" appearance="custom" size="s" class="btn btn-primary active float-end mb-3"
         routerLink="/user/company/add">Ajouter</a>
-  
+        </p>
+
         <!-- Table with stripped rows -->
         <table class="table table-striped table-bordered table-sm row-border hover" id="datatableexample">
           <thead>
@@ -42,14 +44,14 @@
               <td >{{ item.companie_regime  }}</td>
               <td >{{ item.companie_field  }}</td>
               <td >
-                
+
                 <button *ngIf="item.account_state==='L'" tuiButton type="button" appearance="custom" size="s"
                   class="btn btn-danger active" title="Compte inactif" ><i class="bi bi-battery"></i>
                 </button>
                 <button *ngIf="item.account_state!='L'" tuiButton type="button" appearance="custom" size="s"
                   class="btn btn-success active"  title="Compte actif"><i class="bi bi-battery"></i>
                 </button>
-                
+
               </td>
               <td>
                 <button tuiButton type="button" appearance="custom" size="s"
@@ -65,10 +67,10 @@
             </tr>
           </tbody>
         </table>
-  
+
       </div>
     </div>
-  
+
   </main>
   <!-- Fin main -->
 

@@ -53,7 +53,7 @@
             Ce champ est obligatoire
           </div>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-6">
           <label for="" class="mb-2">Nombre de place <span class="text-danger">*</span></label>
           <input type="number" class="form-control" placeholder="Entrez le nombre" name="program_places"
             [(ngModel)]="programs.program_places" required #program_places="ngModel">
@@ -61,15 +61,21 @@
             Ce champ est obligatoire
           </div>
         </div>
+        <div class="col-md-6">
+          <label for="" class="mb-2">Entreprise <span class="text-danger">*</span></label>
+            <select name="companie_fk" class="form-select" aria-label="Default select example"
+            [(ngModel)]="programs.companie_fk" required #companie_fk="ngModel">
+            <option value=" " selected>Choisissez une entreprise</option>
+            <option *ngFor="let item of data_companies.data" [value]="item.id">{{item.companie_name}}</option>
+            </select>
+        </div>
 
         <!-- pour la photo du programme nous prenons en compte que les images png jepg jpg-->
         <div class="col-md-12">
           <label for="" class="mb-2">Choisir une photo pour le programme</label>
-          <input type="file" class="form-control" accept="image/png, image/gif, image/jpeg, image/jpg"
-            name="photo_program" [(ngModel)]="programs.photo_program" required #photo_program="ngModel">
-          <div [hidden]="photo_program.valid || photo_program.pristine" class="alert alert-danger">
-            Ce champ est obligatoire
-          </div>
+          <input type="file" class="form-control" (change)="selectFile($event)" accept="image/png, image/gif, image/jpeg, image/jpg"
+            name="photo_program">
+
         </div>
 
         <div class="mt-5">

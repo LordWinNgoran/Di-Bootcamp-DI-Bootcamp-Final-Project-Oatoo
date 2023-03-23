@@ -19,6 +19,9 @@ export class ApiCompanyService {
   findAll() {
     return this.apiRequestService.get("/companies");
   }
+  findAllCompanyActive(){
+    return this.apiRequestService.get("/companies/companyactive");
+  }
   findAllbyUser(id: number) {
     return this.apiRequestService.get(`/companies/user/${id}`);
   }
@@ -41,7 +44,7 @@ export class ApiCompanyService {
 
 
 
-/* 
+/*
 private baseUrl = 'http://localhost:8080/api/v1/companies';
 
   constructor(private http: HttpClient) { }

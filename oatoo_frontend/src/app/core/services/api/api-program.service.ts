@@ -8,10 +8,11 @@ export class ApiProgramService {
 
   constructor(private apiRequestService: ApiRequestService) { }
 
-  create(program: Program) {
-    return this.apiRequestService.post({endpoint: '/programs', data: program});
+  create(company: any) {
+    this.apiRequestService.setApiType("multipart");
+    return this.apiRequestService.post({endpoint: '/programs', data: company});
   }
-
+  
   update(program: Program) {
     return this.apiRequestService.put({endpoint: '/programs', data: program});
   }
