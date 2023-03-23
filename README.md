@@ -17,13 +17,8 @@ Présentation : Nom de l'application **OATOO**
 > Le projet consiste à mettre en place une plateforme de gestion des demandeurs d'emploi et surtout l'impact que peut avoir leur insertion sur le PIB.
 
     + Constat:
-        -   L’emploi des jeunes est un enjeu majeur pour le continent en général, et la Côte
-d’Ivoire en particulier. Le taux de sous-employabilité est élevé et beaucoup de jeunes
-restent dans la précarité. Au vue de ce constat depuis quelques années le
-gouvernement ivoirien à adopter une nouvelle vision celle de l’année de la jeunesse.
-        -   Cette vision est d’ améliorer le taux d’insertion professionnelle à travers des
-formations intégrations, des ateliers, des financements de projets, les incubateurs de
-startup. C’est dans ce cadre que notre application dénoté Oatoo prend tout son sens.
+        -   L’emploi des jeunes est un enjeu majeur pour le continent en général, et la Côte d’Ivoire en particulier. Le taux de sous-employabilité est élevé et beaucoup de jeunes restent dans la précarité. Au vue de ce constat depuis quelques années le gouvernement ivoirien à adopter une nouvelle vision celle de l’année de la jeunesse.
+        -   Cette vision est d’ améliorer le taux d’insertion professionnelle à travers des formations intégrations, des ateliers, des financements de projets, les incubateurs de startup. C’est dans ce cadre que notre application dénoté Oatoo prend tout son sens.
 
 >>> L’application vise à mesurer de manière efficiente l’impact du taux d’employabilité
 sur le PIB ivoirien durant une période bien définie. En effet la loi d&#39;Okun décrit une
