@@ -1,15 +1,15 @@
 # PROJET : MESURE DE L'IMPACT DE L'INSERTION PROFESSIONNELLE DE LA JEUNESSE IVOIRIENNE SUR LE PIB
 #### 
 ---
-Présentation : Nom de l'APPLICATION **OATOO**
+Présentation : Nom de l'application **OATOO**
 
-|   Outils   |          Description                   |
-| -----------|----------------------------------------|
-| HTML       |  Utilisation de Bootsrap               |
-| ANGULAR    | POUR LE FRONT-END                      |
-| SPRING BOOT| POUR LE BACK-END  AVEC JWT TOKEN       |
-| LIBRAIRIES | MODIFICATION DU CODE CSS ET RESPONSIVE |
-| BOOSTSTRAP | Utilisation du CDN                     |
+|   Outils       |          Description                   |
+| ---------------|----------------------------------------|
+| HTML           |  Utilisation de Bootsrap               |
+| ANGULAR        | POUR LE FRONT-END                      |
+| SPRING BOOT    | POUR LE BACK-END  AVEC JWT TOKEN       |
+| LIBRAIRIES     | TAIGA UI, PARTICLE JS, DATATABLES      |
+| BASE DE DONNES | POSTGRESQL                             |
 
 ---
 ## Description du projet
@@ -40,9 +40,9 @@ Règle `Liste des entités utilisées dans l'application au niveau du front-end 
 
 
 ---
-==Table librairies==
+==Entité Demandeur d'emploi ==
 
-`Les Propiétés de la table librairies`
+`Les Propiétés de l'entité demandeur`
 ``` --id
     --name
     --adress
@@ -149,107 +149,3 @@ et pour chaque librairie, nous aurons plusieurs livres, autheur....
   - 8- Creation des controllers
   - 9- Creation des services 
 
-
-## Tables
-
-Règle `Ajouter des livres, pour chauque livre nous avons une ou plusieurs categories, un ou plusieurs auteurs
-`
-
-
-
-
----
-==Table librairies==
-
-`Les Propiétés de la table librairies`
-``` --id
-    --name
-    --adress
-    --phone
-    --email
-    --gestionnaire
-    --heure d'ouverture
-    --heure de fermeture
-    --createdat
-    --updatedat
-
-```
----
-
-==Table books==
-
-`Les Propiétés de la table books`
-``` --id
-    --librairy_id
-    --title
-    --description
-    --isbn
-    --nombre de page
-    --maison d'edition
-    --date de parution
-    --createdat
-    --updatedat
-
-```
----
-
-==Table categories==
-
-`Les Propiétés de la table categories`
-``` --id
-    --librairy_id
-    --libelle
-    --createdat
-    --updatedat
-
-```
----
-
-
-==Table authors==
-
-`Les Propiétés de la table categories`
-```  --id
-    --librairy_id
-    --fullname
-    --address
-    --phone
-    --email
-    --gender
-    --createdat
-    --updatedat
-```
----
-
- ` ### Les relations`
-
-##### - many to many:
-
-
-
----
-
-
-==Table books_categories==
-
-`Les Propiétés de la table books_categories`
-```  --book_id
-     --category_id
-     --createdat
-     --updatedat
-```
----
-
-
-==Table authors_books==
-
-`Les Propiétés de la table authors_books`
-```  --author_id
-     --book_id
-     --version
-     --createdat
-     --updatedat
-```
----
-    
-    
