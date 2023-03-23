@@ -11,6 +11,67 @@ Présentation : Nom de l'APPLICATION **OATOO**
 | LIBRAIRIES | MODIFICATION DU CODE CSS ET RESPONSIVE |
 | BOOSTSTRAP | Utilisation du CDN                     |
 
+---
+## Description du projet
+
+> Le projet consiste à mettre en place une plateforme de gestion des demandeurs d'emploi et surtout l'impact que peut avoir leur insertion sur le PIB.
+
+    + Constat:
+        -   L’emploi des jeunes est un enjeu majeur pour le continent en général, et la Côte
+d’Ivoire en particulier. Le taux de sous-employabilité est élevé et beaucoup de jeunes
+restent dans la précarité. Au vue de ce constat depuis quelques années le
+gouvernement ivoirien à adopter une nouvelle vision celle de l’année de la jeunesse.
+        -   Cette vision est d’ améliorer le taux d’insertion professionnelle à travers des
+formations intégrations, des ateliers, des financements de projets, les incubateurs de
+startup. C’est dans ce cadre que notre application dénoté Oatoo prend tout son sens.
+
+>>> L’application vise à mesurer de manière efficiente l’impact du taux d’employabilité
+sur le PIB ivoirien durant une période bien définie. En effet la loi d&#39;Okun décrit une
+relation linéaire empirique entre le taux de croissance (du PIB) et la variation du taux
+de chômage. En dessous d&#39;un certain seuil de croissance, le chômage augmente ; au-
+dessus de ce seuil, il diminue, à élasticité constante. En se basant sur cette loi et en
+étudiant les impôts payés par les ex-chômeurs.
+
+
+## LES ENTITES
+
+Règle `Liste des entités utilisées dans l'application au niveau du front-end et du back-end
+`
+
+
+---
+==Table librairies==
+
+`Les Propiétés de la table librairies`
+``` --id
+    --name
+    --adress
+    --phone
+    --email
+    --gestionnaire
+    --heure d'ouverture
+    --heure de fermeture
+    --createdat
+    --updatedat
+
+```
+---
+
+
++ LISTE DES TACHES :
+  - 0-Installation de l'environnement marven    OK
+  - 1-Creation du projet spring boot      OK
+  - 2- Creation de la base de donnee      OK
+  - 3- Definition des tables de la base de donnee   OK
+  - 4- Connexion de la base de donnée 
+  - 5- Structure de l'application
+  - 6- Creation du modele
+  - 7- Creation des repositories
+  - 8- Creation des controllers
+  - 9- Creation des services 
+
+
+
 ## TRAVAIL A FAIRE
 - La page index.html doit être modifier 
     > Utilisation de overplay ou code dans le commentaire pour le carousel
